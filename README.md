@@ -27,11 +27,43 @@
    ```
 2. **微信开发者工具**：`导入项目 → 选择仓库根目录`（是 `farm-miniprogram/` 目录本身，不是外层 `farm/`）。AppID 已配置好，可直接调试。
 
-3. **团队 Git 约定**：
-   - 主线：**`dev`**（集成各成员功能）
-   - 各自开发分支：`feature/m1`、`feature/m2`、`feature/m3`
-   - 流程：`git checkout -b feature/mX origin/dev` → 只改自己负责的文件 → 推分支 → 合入 `dev`
-   - **不要直接在主分支 `dev/main` 上写业务代码**；公共文件的改动也走分支 review 后再合。
+3. **团队 Git 约定（三线协作流，请务必按此执行）**：
+
+   **分支角色**
+   - `main`：**最终整合/发布**，平时不动，只在项目最终阶段由负责人合入；
+   - `dev`：**各成员功能集成线**，所有功能都汇聚到这里，大家共享；
+   - `feature/m1`、`feature/m2`、`feature/m3`：每人自己的开发分支，**从 `dev` 拉取**。
+
+   **日常开发流程（以 feature/mX 为例）**
+   ```bash
+   # ① 从 dev 拉出自己分支（仅首次）
+   git checkout -b feature/mX origin/dev
+
+   # ② 每次动工前，先同步 dev 最新代码（避免冲突）
+   git checkout feature/mX
+   git fetch origin
+   git merge origin/dev
+
+   # ③ 写完代码：在 feature 分支提交并推送
+   git add .
+   git commit -m "feat: 完成 xxx"
+   git push origin feature/mX
+
+   # ④ 共享代码：在 GitHub 仓库页面发起 Pull Request（feature/mX → dev）
+   #    base: dev  ←  compare: feature/mX → 确认后 Create 并 Merge
+   #    PR 合入后，dev 即包含你的代码，其他成员 pull 即可使用
+   ```
+
+   **同步队友的代码（所有人都这样做）**
+   ```bash
+   git checkout dev
+   git pull origin dev
+   ```
+
+   > 关键点：
+   > - **你的代码进入 dev 的唯一途径是 PR（feature → dev）**，合完大家 `git pull origin dev` 就能用到；
+   > - **不要直接 push 业务代码到 `dev` / `main`**，也不要直接在 dev 上开发；
+   > - 每次合 PR 前先确保已同步 dev 最新（步骤②），减少冲突。
 
 ---
 
