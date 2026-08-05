@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mall/mall",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1FAE5A",
+    "navigationBarTitleText": "皖北珍菌·助农",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F6F8",
+    "enablePullDownRefresh": false
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的定位信息将用于助农服务与就近推荐"
+    }
+  },
+  "requiredPrivateInfos": [],
+  "networkTimeout": {
+    "request": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1FAE5A",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tab/home.png",
+        "selectedIconPath": "static/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/mall/mall",
+        "text": "商城",
+        "iconPath": "static/tab/mall.png",
+        "selectedIconPath": "static/tab/mall-active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "static/tab/user.png",
+        "selectedIconPath": "static/tab/user-active.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

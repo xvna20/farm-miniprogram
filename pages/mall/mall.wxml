@@ -1,0 +1,4 @@
+<view class="gp-flex-col gp-flex-center gp-full placeholder">
+  <view class="gp-text-primary gp-text-bold">{{title}}</view>
+  <view class="gp-text-placeholder gp-mt-sm">{{tip}}</view>
+</view>

@@ -1,0 +1,95 @@
+/* 首页页面级样式：复用 app.wxss 全局类，页面类保持简洁 */
+
+.page {
+  padding: 30rpx;
+}
+
+/* ================= 顶部标题区 ================= */
+.hero {
+  padding: 40rpx 0 50rpx;
+}
+
+.hero-badge {
+  font-size: 24rpx;
+  letter-spacing: 6rpx;
+  color: var(--primary-color);
+  background: var(--primary-light);
+  padding: 8rpx 24rpx;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-title {
+  font-size: 46rpx;
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+.hero-slogan {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: var(--text-placeholder);
+}
+
+/* ================= 2×3 卡片网格 ================= */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid-item {
+  width: 48%;
+  margin-bottom: 24rpx;
+  padding: 30rpx 16rpx;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: 0 4rpx 16rpx rgba(31, 174, 90, 0.08);
+}
+
+/* 按下反馈 */
+.grid-item-active {
+  transform: scale(0.96);
+  box-shadow: 0 2rpx 8rpx rgba(31, 174, 90, 0.15);
+}
+
+/* 图标：绿色圆底 + emoji */
+.icon-wrap {
+  width: 88rpx;
+  height: 88rpx;
+  margin: 0 auto 16rpx;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 44rpx;
+  line-height: 1;
+}
+
+/* 标题：最多两行省略 */
+.item-title {
+  font-size: 26rpx;
+  color: var(--text-main);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 74rpx;
+  line-height: 1.4;
+}
+
+/* 简介 */
+.item-desc {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: var(--text-placeholder);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

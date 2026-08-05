@@ -1,0 +1,30 @@
+<!-- 首页：皖北珍菌·助农 -->
+<view class="page">
+
+  <!-- 顶部标题区：清新田园绿 -->
+  <view class="gp-flex-col gp-items-center hero">
+    <view class="hero-badge">菌 · 香 · 皖 · 北</view>
+    <view class="hero-title">{{pageTitle}}</view>
+    <view class="hero-slogan">{{slogan}}</view>
+  </view>
+
+  <!-- 2×3 功能卡片网格 -->
+  <view class="grid">
+    <view
+      wx:for="{{cards}}"
+      wx:key="title"
+      class="grid-item gp-card"
+      hover-class="grid-item-active"
+      data-index="{{index}}"
+      bindtap="onCardTap"
+    >
+      <!-- 图标 -->
+      <view class="icon-wrap"><text class="icon">{{item.icon}}</text></view>
+      <!-- 标题 -->
+      <view class="gp-text-bold item-title">{{item.title}}</view>
+      <!-- 简介 -->
+      <view class="item-desc">{{item.desc}}</view>
+    </view>
+  </view>
+
+</view>
