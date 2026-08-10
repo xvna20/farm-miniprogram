@@ -1,0 +1,115 @@
+<view
+  class="page"
+  wx:if="{{product}}"
+>
+
+  <!-- 商品主图 -->
+  <view class="product-cover">
+
+    <image
+      wx:if="{{product.image}}"
+      class="cover-image"
+      src="{{product.image}}"
+      mode="aspectFill"
+    />
+
+    <view
+      wx:else
+      class="cover-placeholder"
+    >
+      <text class="cover-placeholder-text">
+        {{product.imageText}}
+      </text>
+    </view>
+
+  </view>
+
+
+  <!-- 商品信息 -->
+  <view class="product-main">
+
+    <!-- 名称 -->
+    <view class="product-name">
+      {{product.name}}
+    </view>
+
+    <!-- 副标题 -->
+    <view class="product-subtitle">
+      {{product.subtitle}}
+    </view>
+
+
+    <!-- 价格 -->
+    <view class="price-row">
+      <text class="product-price">
+        ¥ {{product.priceText}}
+      </text>
+
+      <text class="product-unit">
+        / {{product.unit}}
+      </text>
+    </view>
+
+
+    <!-- 标签 -->
+    <view class="tag-list">
+
+      <view
+        class="tag"
+        wx:for="{{product.tags}}"
+        wx:key="*this"
+      >
+        {{item}}
+      </view>
+
+    </view>
+
+
+    <!-- 商品说明 -->
+    <view class="description-card">
+
+      <view class="description-title">
+        商品说明
+      </view>
+
+      <view class="description-text">
+        {{product.description}}
+      </view>
+
+    </view>
+
+  </view>
+
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+
+    <!-- 购物车 -->
+    <view
+      class="cart-entry"
+      bindtap="goToCart"
+    >
+      <text class="cart-entry-text">
+        购物车
+      </text>
+
+      <view
+        class="cart-count"
+        wx:if="{{cartCount > 0}}"
+      >
+        {{cartCount}}
+      </view>
+    </view>
+
+
+    <!-- 加入购物车 -->
+    <view
+      class="add-button"
+      bindtap="addToCart"
+    >
+      加入购物车
+    </view>
+
+  </view>
+
+</view>

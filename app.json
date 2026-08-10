@@ -2,7 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/mall/mall",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/product-detail/product-detail",
+    "pages/cart/cart",
+    "pages/confirm-order/confirm-order",
+    "pages/order-result/order-result"
   ],
   "window": {
     "backgroundTextStyle": "dark",
