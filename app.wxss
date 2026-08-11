@@ -13,15 +13,17 @@
  */
 page {
   /* ================== 全局主题变量（CSS 变量） ================== */
-  --primary-color: #1FAE5A;   /* 主色：助农绿 */
-  --primary-dark: #158a46;    /* 主色深 */
-  --primary-light: #e6f7ee;   /* 主色浅底 */
-  --text-main: #333333;       /* 主文字 */
-  --text-secondary: #666666;  /* 次要文字 */
-  --text-placeholder: #999999;/* 弱化文字 */
-  --border-color: #eeeeee;    /* 分割线/边框 */
-  --bg-page: #f5f6f8;         /* 页面背景 */
-  --bg-card: #ffffff;         /* 卡片背景 */
+  --primary-color: #B8860B;   /* 主色：青铜金 */
+  --primary-dark: #9A720A;    /* 主色深 */
+  --primary-light: #F5EFD9;   /* 主色浅底 */
+  --accent-cream: #F5F0E8;    /* 米色背景 */
+  --accent-warm: #E8DFD0;     /* 暖米色 */
+  --text-main: #2C2416;       /* 主文字：深棕 */
+  --text-secondary: #6B5D4F;  /* 次要文字 */
+  --text-placeholder: #A89B8C;/* 弱化文字 */
+  --border-color: #E8DFD0;    /* 分割线/边框 */
+  --bg-page: #F5F0E8;         /* 页面背景：米色 */
+  --bg-card: #FFFFFF;         /* 卡片背景 */
   --radius-base: 16rpx;       /* 基础圆角 */
   --radius-lg: 24rpx;         /* 大圆角 */
   --spacing-xs: 10rpx;        /* 超小间距 */

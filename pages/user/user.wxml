@@ -1,4 +1,75 @@
-<view class="gp-flex-col gp-flex-center gp-full placeholder">
-  <view class="gp-text-primary gp-text-bold">{{title}}</view>
-  <view class="gp-text-placeholder gp-mt-sm">{{tip}}</view>
+<view class="page">
+
+  <!-- 顶部 Header -->
+  <view class="header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="header-title">我的</view>
+  </view>
+  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
+
+  <view class="content">
+
+    <!-- 用户卡片（橄榄绿背景） -->
+    <view class="user-card" bindtap="onEditProfile">
+      <view class="user-avatar">
+        <text class="avatar-text">头像</text>
+      </view>
+      <view class="user-info">
+        <view class="user-name">珠城寻菌人</view>
+        <view class="user-desc">支持乡村好物 · 记录实践足迹</view>
+      </view>
+      <view class="edit-btn" bindtap="onEditProfile">编辑资料 ›</view>
+    </view>
+
+    <!-- 我的订单 -->
+    <view class="order-card">
+      <view class="order-header">
+        <view class="order-title">我的订单</view>
+        <view class="order-all" bindtap="onGoOrders">全部订单 ›</view>
+      </view>
+      <view class="order-stats">
+        <view class="order-item" wx:for="{{orders}}" wx:key="key">
+          <view class="order-count">{{item.count}}</view>
+          <view class="order-label">{{item.label}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 功能列表 -->
+    <view class="menu-card">
+      <view class="menu-item" bindtap="onGoAddress">
+        <view class="menu-icon">
+          <text class="icon-char">址</text>
+        </view>
+        <view class="menu-info">
+          <view class="menu-title">收货地址</view>
+          <view class="menu-desc">设置常用配送地址</view>
+        </view>
+        <view class="menu-arrow">›</view>
+      </view>
+
+      <view class="menu-item" bindtap="onFeedback">
+        <view class="menu-icon">
+          <text class="icon-char">议</text>
+        </view>
+        <view class="menu-info">
+          <view class="menu-title">意见反馈</view>
+          <view class="menu-desc">告诉我们建议或问题</view>
+        </view>
+        <view class="menu-arrow">›</view>
+      </view>
+
+      <view class="menu-item" bindtap="onAbout">
+        <view class="menu-icon">
+          <text class="icon-char">关</text>
+        </view>
+        <view class="menu-info">
+          <view class="menu-title">关于我们</view>
+          <view class="menu-desc">实践团队与项目来源</view>
+        </view>
+        <view class="menu-arrow">›</view>
+      </view>
+
+    </view>
+
+  </view>
 </view>

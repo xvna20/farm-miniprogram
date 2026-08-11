@@ -2,14 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/mall/mall",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/user/edit-profile/edit-profile"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#1FAE5A",
-    "navigationBarTitleText": "皖北珍菌·助农",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#F5F6F8",
+    "navigationBarBackgroundColor": "#F5F0E8",
+    "navigationBarTitleText": "皖北珍菌",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F0E8",
     "enablePullDownRefresh": false
   },
   "permission": {
@@ -24,28 +25,28 @@
     "downloadFile": 10000
   },
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#1FAE5A",
+    "color": "#000000",
+    "selectedColor": "#000000",
     "backgroundColor": "#ffffff",
-    "borderStyle": "black",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "static/tab/home.png",
-        "selectedIconPath": "static/tab/home-active.png"
+        "selectedIconPath": "static/tab/home.png"
       },
       {
         "pagePath": "pages/mall/mall",
         "text": "商城",
         "iconPath": "static/tab/mall.png",
-        "selectedIconPath": "static/tab/mall-active.png"
+        "selectedIconPath": "static/tab/mall.png"
       },
       {
         "pagePath": "pages/user/user",
         "text": "我的",
         "iconPath": "static/tab/user.png",
-        "selectedIconPath": "static/tab/user-active.png"
+        "selectedIconPath": "static/tab/user.png"
       }
     ]
   },
