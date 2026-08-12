@@ -15,7 +15,7 @@ page {
    ========================= */
 
 .cart-list {
-  padding: 28rpx 30rpx;
+  padding: 28rpx 40rpx;
 }
 
 .cart-card {
@@ -26,7 +26,7 @@ page {
 
   padding: 24rpx;
 
-  margin-bottom: 22rpx;
+  margin-bottom: 32rpx;
 
   background-color: #fffdf8;
 
@@ -76,8 +76,8 @@ page {
 .product-image {
   flex-shrink: 0;
 
-  width: 170rpx;
-  height: 130rpx;
+  width: 180rpx;
+  height: 180rpx;
 
   border-radius: 16rpx;
 

@@ -7,7 +7,9 @@ const products = [
     price: 12.8,
     unit: "斤",
     category: "fresh",
-    image: "",
+
+    image: "/static/products/xiuzhengu.jpeg",
+
     imageText: "秀珍菇",
     tags: ["绿色种植", "冷链直达", "助农直销"],
     description:
@@ -21,7 +23,9 @@ const products = [
     price: 32.0,
     unit: "袋",
     category: "dry",
-    image: "",
+
+    image: "/static/products/xianggu.png",
+
     imageText: "香菇",
     tags: ["绿色种植", "冷风慢干", "助农直销"],
     description:

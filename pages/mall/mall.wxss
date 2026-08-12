@@ -142,7 +142,7 @@ page {
 
 .product-image {
   width: 100%;
-  height: 210rpx;
+  height: 170rpx;
 
   background-color: #e9e4d8;
 
@@ -157,8 +157,14 @@ page {
   font-weight: 600;
 }
 
+.real-product-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .product-info {
-  padding: 20rpx;
+  padding: 12rpx 18rpx;
 }
 
 .product-name {
