@@ -66,6 +66,11 @@ App({
    * 生命周期 - 小程序初始化时触发（全局只触发一次）
    */
   onLaunch() {
+    // 初始化云开发（头像等文件上传云存储），需先在开发者工具中开通云开发
+    if (wx.cloud) {
+      wx.cloud.init({ env: 'cloud1-d5gmj24xffe354a63' });
+    }
+
     // 读取本地缓存的登录态，用于冷启动恢复
     const tools = require('./utils/tools');
     const token = tools.getStorage('token', '');

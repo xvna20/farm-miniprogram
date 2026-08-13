@@ -11,11 +11,12 @@
     <!-- 用户卡片（橄榄绿背景） -->
     <view class="user-card" bindtap="onEditProfile">
       <view class="user-avatar">
-        <text class="avatar-text">头像</text>
+        <image wx:if="{{userInfo.avatar}}" class="avatar-img" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+        <text wx:else class="avatar-text">头像</text>
       </view>
       <view class="user-info">
-        <view class="user-name">珠城寻菌人</view>
-        <view class="user-desc">支持乡村好物 · 记录实践足迹</view>
+        <view class="user-name">{{userInfo.nickname}}</view>
+        <view class="user-desc">{{userInfo.bio}}</view>
       </view>
       <view class="edit-btn" bindtap="onEditProfile">编辑资料 ›</view>
     </view>
