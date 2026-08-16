@@ -55,19 +55,27 @@ Page({
 
   /* ===== 订单 ===== */
   onGoOrders() {
-    wx.showToast({ title: '全部订单', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/orders/orders?tab=all'
+    });
   },
 
   /* ===== 功能列表 ===== */
   onGoAddress() {
-    wx.showToast({ title: '收货地址', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/address/address'
+    });
   },
 
   onFeedback() {
-    wx.showToast({ title: '意见反馈', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/feedback/feedback'
+    });
   },
 
   onAbout() {
-    wx.showToast({ title: '关于我们', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/about/about'
+    });
   }
 });
