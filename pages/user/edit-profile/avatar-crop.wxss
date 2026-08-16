@@ -1,0 +1,166 @@
+.crop-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000;
+}
+
+.crop-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #111111;
+}
+
+.crop-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+}
+
+.crop-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.crop-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx 20rpx;
+}
+
+.crop-cancel {
+  font-size: 30rpx;
+  color: #FFFFFF;
+  border: 2rpx solid #5A5A5A;
+  border-radius: 40rpx;
+  padding: 10rpx 40rpx;
+}
+
+.crop-cancel:active {
+  background: #222222;
+}
+
+.crop-confirm {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #FFFFFF;
+  background: #8B9B6B;
+  border-radius: 40rpx;
+  padding: 12rpx 40rpx;
+}
+
+/* 裁剪舞台：方形裁剪框 */
+.crop-stage {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  background: #000000;
+  z-index: 10;
+}
+
+.crop-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.crop-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border: 2rpx solid #FFFFFF;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.crop-line {
+  position: absolute;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+.crop-line-h {
+  left: 0;
+  right: 0;
+  height: 2rpx;
+  top: 33.333%;
+}
+
+.crop-line-v {
+  top: 0;
+  bottom: 0;
+  width: 2rpx;
+  left: 33.333%;
+}
+
+/* 底部缩放工具 */
+.crop-tools {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  padding: 24rpx 48rpx 0;
+  background: #111111;
+}
+
+.crop-zoom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crop-btn {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  border: 2rpx solid #666666;
+  color: #FFFFFF;
+  font-size: 40rpx;
+  line-height: 68rpx;
+  text-align: center;
+  background: #222222;
+}
+
+.crop-btn:active {
+  background: #333333;
+}
+
+.crop-zoom-label {
+  min-width: 120rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.crop-tip {
+  font-size: 24rpx;
+  color: #9A9A9A;
+  text-align: center;
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+/* 导出的画布：移出屏幕 */
+.crop-canvas {
+  position: fixed;
+  left: -10000px;
+  top: -10000px;
+  width: 300px;
+  height: 300px;
+}

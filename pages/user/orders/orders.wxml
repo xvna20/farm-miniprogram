@@ -1,0 +1,51 @@
+<view class="page">
+
+  <!-- 顶部 Header -->
+  <view class="header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="header-back" bindtap="onGoBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="header-title">我的订单</view>
+    <view class="header-menu">
+      <text class="menu-icon">⋯</text>
+    </view>
+  </view>
+  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
+
+  <view class="order-section-title">订单状态</view>
+
+  <!-- Tab 切换栏 -->
+  <view class="tabs">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="tab-item {{currentTab === item.key ? 'tab-active' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="onTabChange"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="content">
+
+    <!-- 订单列表（有数据时） -->
+    <view wx:if="{{orderList.length > 0}}" class="order-list">
+      <view wx:for="{{orderList}}" wx:key="id" class="order-card">
+        <!-- TODO: 订单卡片样式待设计图（带数据页面）确认后补充 -->
+      </view>
+    </view>
+
+    <!-- 空状态（无数据时） -->
+    <view wx:else class="empty-state">
+      <view class="empty-circle">
+        <text class="empty-char">{{currentTabInfo.emptyChar}}</text>
+      </view>
+      <view class="empty-title">{{currentTabInfo.emptyTitle}}</view>
+      <view class="empty-sub">{{currentTabInfo.emptySub}}</view>
+      <view class="empty-btn" bindtap="onGoMall">去商城看看</view>
+    </view>
+
+    <!-- 底部说明 -->
+    <view class="footer-tip">订单状态更新后将自动同步</view>
+
+  </view>
+</view>

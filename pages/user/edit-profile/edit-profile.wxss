@@ -81,6 +81,12 @@
   color: #FFFFFF;
 }
 
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
 .avatar-info {
   flex: 1;
   margin-left: 32rpx;
@@ -125,6 +131,19 @@
 }
 
 .form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-picker {
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.form-picker .form-item {
+  margin-bottom: 0;
+}
+
+.form-picker:last-child {
   margin-bottom: 0;
 }
 

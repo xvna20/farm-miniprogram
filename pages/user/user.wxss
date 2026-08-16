@@ -59,6 +59,12 @@
   color: #FFFFFF;
 }
 
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
 .user-info {
   flex: 1;
   margin-left: 28rpx;
@@ -76,6 +82,9 @@
   font-size: 26rpx;
   color: rgba(255,255,255,0.8);
   margin-top: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .edit-btn {

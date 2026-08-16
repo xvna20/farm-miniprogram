@@ -1,0 +1,47 @@
+<!--pages/user/edit-profile/avatar-crop.wxml-->
+<view class="crop-page">
+
+  <!-- 顶部操作栏 -->
+  <view class="crop-header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="crop-title-row">
+      <view class="crop-title">裁剪头像</view>
+    </view>
+    <view class="crop-action-row">
+      <view class="crop-cancel" bindtap="onCancel">取消</view>
+      <view class="crop-confirm" bindtap="onConfirm">保存</view>
+    </view>
+  </view>
+
+  <!-- 裁剪舞台（方形裁剪框，图片始终盖满） -->
+  <view
+    class="crop-stage"
+    style="width: {{stageSize}}px; height: {{stageSize}}px; top: {{stageTop}}px;"
+    catchtouchstart="onTouchStart"
+    catchtouchmove="onTouchMove"
+    catchtouchend="onTouchEnd"
+    catchtouchcancel="onTouchEnd"
+  >
+    <image
+      class="crop-img"
+      src="{{src}}"
+      mode="aspectFill"
+      style="left: {{imgLeft}}px; top: {{imgTop}}px; width: {{dispW}}px; height: {{dispH}}px;"
+    />
+    <view class="crop-frame"></view>
+    <view class="crop-line crop-line-h"></view>
+    <view class="crop-line crop-line-v"></view>
+  </view>
+
+  <!-- 底部：缩放按钮 + 倍率 + 提示 -->
+  <view class="crop-tools" style="padding-bottom: {{safeBottom}}px;">
+    <view class="crop-zoom">
+      <view class="crop-btn" bindtap="onZoomOut">－</view>
+      <view class="crop-zoom-label">{{zoomLabel}}</view>
+      <view class="crop-btn" bindtap="onZoomIn">＋</view>
+    </view>
+    <view class="crop-tip">拖动图片调整位置 · 双指或按钮缩放</view>
+  </view>
+
+  <!-- 导出用画布（移出屏幕，仅确认时使用） -->
+  <canvas type="2d" id="crop-canvas" class="crop-canvas"></canvas>
+</view>

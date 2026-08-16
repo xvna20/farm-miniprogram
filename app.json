@@ -3,7 +3,13 @@
     "pages/index/index",
     "pages/mall/mall",
     "pages/user/user",
-    "pages/user/edit-profile/edit-profile"
+    "pages/user/edit-profile/edit-profile",
+    "pages/user/edit-profile/avatar-crop",
+    "pages/user/address/address",
+    "pages/user/address-edit/address-edit",
+    "pages/user/feedback/feedback",
+    "pages/user/about/about",
+    "pages/user/orders/orders"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -18,7 +24,7 @@
       "desc": "您的定位信息将用于助农服务与就近推荐"
     }
   },
-  "requiredPrivateInfos": [],
+  "requiredPrivateInfos": ["getLocation", "chooseLocation"],
   "networkTimeout": {
     "request": 10000,
     "uploadFile": 10000,
@@ -26,7 +32,7 @@
   },
   "tabBar": {
     "color": "#000000",
-    "selectedColor": "#000000",
+    "selectedColor": "#1FAE5A",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [
@@ -34,19 +40,19 @@
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "static/tab/home.png",
-        "selectedIconPath": "static/tab/home.png"
+        "selectedIconPath": "static/tab/home-active.png"
       },
       {
         "pagePath": "pages/mall/mall",
         "text": "商城",
         "iconPath": "static/tab/mall.png",
-        "selectedIconPath": "static/tab/mall.png"
+        "selectedIconPath": "static/tab/mall-active.png"
       },
       {
         "pagePath": "pages/user/user",
         "text": "我的",
         "iconPath": "static/tab/user.png",
-        "selectedIconPath": "static/tab/user.png"
+        "selectedIconPath": "static/tab/user-active.png"
       }
     ]
   },

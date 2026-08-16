@@ -1,10 +1,18 @@
 /**
- * pages/user/user.js - 个人中心页（占位）
+ * pages/user/user.js - 个人中心页
  * 正式业务由成员三开发（个人中心 / 编辑资料 / 意见反馈 / 收货地址 / 订单状态）
  */
+const app = getApp();
+const tools = require('../../utils/tools');
+
 Page({
   data: {
     statusBarHeight: 20,
+    userInfo: {
+      nickname: '珠城寻菌人',
+      bio: '支持乡村好物 · 记录实践足迹',
+      avatar: ''
+    },
     orders: [
       { key: 'unpaid',   count: 0, label: '待付款' },
       { key: 'unshipped', count: 1, label: '待发货' },
@@ -14,9 +22,27 @@ Page({
   },
 
   onLoad() {
-    const sysInfo = wx.getSystemInfoSync();
+    const sysInfo = wx.getWindowInfo();
     this.setData({
       statusBarHeight: sysInfo.statusBarHeight || 20
+    });
+    this.refreshUserInfo();
+  },
+
+  onShow() {
+    this.refreshUserInfo();
+  },
+
+  /* 从全局数据/本地缓存刷新用户资料 */
+  refreshUserInfo() {
+    const info = app.globalData.userInfo || tools.getStorage('userInfo', null);
+    if (!info) return;
+    this.setData({
+      userInfo: {
+        nickname: info.nickname || this.data.userInfo.nickname,
+        bio: info.bio || this.data.userInfo.bio,
+        avatar: info.avatar || ''
+      }
     });
   },
 
@@ -29,19 +55,27 @@ Page({
 
   /* ===== 订单 ===== */
   onGoOrders() {
-    wx.showToast({ title: '全部订单', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/orders/orders?tab=all'
+    });
   },
 
   /* ===== 功能列表 ===== */
   onGoAddress() {
-    wx.showToast({ title: '收货地址', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/address/address'
+    });
   },
 
   onFeedback() {
-    wx.showToast({ title: '意见反馈', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/feedback/feedback'
+    });
   },
 
   onAbout() {
-    wx.showToast({ title: '关于我们', icon: 'none' });
+    wx.navigateTo({
+      url: '/pages/user/about/about'
+    });
   }
 });

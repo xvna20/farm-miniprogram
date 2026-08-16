@@ -14,7 +14,8 @@
     <!-- 头像卡片（橄榄绿背景） -->
     <view class="avatar-card" bindtap="onChangeAvatar">
       <view class="avatar-circle">
-        <text class="avatar-text">头像</text>
+        <image wx:if="{{userInfo.avatar}}" class="avatar-img" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+        <text wx:else class="avatar-text">头像</text>
       </view>
       <view class="avatar-info">
         <view class="avatar-title">点击更换头像</view>
@@ -35,16 +36,20 @@
         <view class="form-value">{{userInfo.phone}}</view>
         <view class="form-arrow">›</view>
       </view>
-      <view class="form-item" bindtap="onEditGender">
-        <view class="form-label">性别</view>
-        <view class="form-value">{{userInfo.gender}}</view>
-        <view class="form-arrow">›</view>
-      </view>
-      <view class="form-item" bindtap="onEditRegion">
-        <view class="form-label">所在地区</view>
-        <view class="form-value">{{userInfo.region}}</view>
-        <view class="form-arrow">›</view>
-      </view>
+      <picker class="form-picker" mode="selector" range="{{genderOptions}}" value="{{genderIndex}}" bindchange="onGenderChange">
+        <view class="form-item">
+          <view class="form-label">性别</view>
+          <view class="form-value">{{userInfo.gender}}</view>
+          <view class="form-arrow">›</view>
+        </view>
+      </picker>
+      <picker class="form-picker" mode="region" value="{{regionArr}}" bindchange="onRegionChange">
+        <view class="form-item">
+          <view class="form-label">所在地区</view>
+          <view class="form-value">{{userInfo.region}}</view>
+          <view class="form-arrow">›</view>
+        </view>
+      </picker>
     </view>
 
     <!-- 个人简介 -->
