@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "皖北珍菌·助农"
+  "navigationStyle": "custom",
+  "backgroundColor": "#FFFFFF",
+  "backgroundTextStyle": "dark"
 }

@@ -6,14 +6,21 @@
     "pages/product-detail/product-detail",
     "pages/cart/cart",
     "pages/confirm-order/confirm-order",
-    "pages/order-result/order-result"
+    "pages/order-result/order-result",
+    "pages/user/edit-profile/edit-profile",
+    "pages/user/edit-profile/avatar-crop",
+    "pages/user/address/address",
+    "pages/user/address-edit/address-edit",
+    "pages/user/feedback/feedback",
+    "pages/user/about/about",
+    "pages/user/orders/orders"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#1FAE5A",
-    "navigationBarTitleText": "皖北珍菌·助农",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#F5F6F8",
+    "navigationBarBackgroundColor": "#F5F0E8",
+    "navigationBarTitleText": "皖北珍菌",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F0E8",
     "enablePullDownRefresh": false
   },
   "permission": {
@@ -21,17 +28,17 @@
       "desc": "您的定位信息将用于助农服务与就近推荐"
     }
   },
-  "requiredPrivateInfos": [],
+  "requiredPrivateInfos": ["getLocation", "chooseLocation"],
   "networkTimeout": {
     "request": 10000,
     "uploadFile": 10000,
     "downloadFile": 10000
   },
   "tabBar": {
-    "color": "#999999",
+    "color": "#000000",
     "selectedColor": "#1FAE5A",
     "backgroundColor": "#ffffff",
-    "borderStyle": "black",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",

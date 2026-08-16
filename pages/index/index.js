@@ -7,49 +7,48 @@ const app = getApp();
 
 Page({
   data: {
-    // 标题区
-    pageTitle: '皖北珍菌·助农',
-    slogan: '菌香皖北 · 乡村振兴',
-
-    // 六个功能卡片配置（图标用 emoji，标题 + 简介 + 跳转路由）
+    statusBarHeight: 20,
+    headerHeight: 64,
+    heroImage: '/image/01_首页菌菇基地.jpeg',
+    // 四大主题卡片配置（编号 + 标题 + 简介 + 跳转路由）
     cards: [
       {
-        icon: '🌾',
-        title: '红铸初心·机场新村振兴奋斗史',
-        desc: '乡村振兴纪实图文展示',
+        number: '01',
+        title: '红铸初心',
+        desc: '新村振兴奋斗史',
         url: '/pages/article/history/history'
       },
       {
-        icon: '🍄',
-        title: '皖北珍菌·菌种辨识',
-        desc: '本地菌类科普识别',
+        number: '02',
+        title: '皖北珍菌',
+        desc: '地域特色物产图鉴',
         url: '/pages/article/mushroom/mushroom'
       },
       {
-        icon: '🌱',
-        title: '科创兴农·种植流程',
-        desc: '双基地培育全过程讲解',
+        number: '03',
+        title: '科创兴农',
+        desc: '双基地产业助农',
         url: '/pages/article/grow/grow'
       },
       {
-        icon: '🍲',
-        title: '食养安康·家常食谱',
-        desc: '菌类养生食谱查阅',
+        number: '04',
+        title: '食养安康',
+        desc: '菌菇养生应用指南',
         url: '/pages/article/recipe/recipe'
-      },
-      {
-        icon: '📰',
-        title: '助农资讯',
-        desc: '惠农政策、行业动态',
-        url: '/pages/article/news/news'
-      },
-      {
-        icon: '📖',
-        title: '关于项目',
-        desc: '团队实训项目介绍',
-        url: '/pages/article/about/about'
       }
     ]
+  },
+
+  onLoad() {
+    const sysInfo = wx.getSystemInfoSync();
+    const rpxToPx = sysInfo.windowWidth / 750;
+    const statusBarHeight = sysInfo.statusBarHeight || 20;
+    // header 总高度 = 状态栏 + header-inner(88rpx)
+    const headerHeight = Math.ceil(statusBarHeight + 88 * rpxToPx);
+    this.setData({
+      statusBarHeight: statusBarHeight,
+      headerHeight: headerHeight
+    });
   },
 
   /**
@@ -65,8 +64,15 @@ Page({
       url: card.url,
       fail: () => {
         // 页面未建立时的友好提示
-        app.showToastError('页面建设中，敬请期待');
+        wx.showToast({ title: '页面建设中，敬请期待', icon: 'none' });
       }
     });
+  },
+
+  /**
+   * Hero 探索按钮点击
+   */
+  onExploreTap() {
+    wx.showToast({ title: '开始探索', icon: 'none' });
   }
 });

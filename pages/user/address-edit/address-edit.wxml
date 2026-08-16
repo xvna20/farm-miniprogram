@@ -1,0 +1,97 @@
+<view class="page">
+
+  <!-- 顶部 Header -->
+  <view class="header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="header-back" bindtap="onGoBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="header-title">{{isEdit ? '编辑地址' : '新增地址'}}</view>
+  </view>
+  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
+
+  <view class="content">
+
+    <!-- 表单卡片 -->
+    <view class="form-card">
+
+      <!-- 收货人 -->
+      <view class="form-row">
+        <view class="form-label">收货人</view>
+        <input
+          class="form-input"
+          type="text"
+          placeholder="请输入姓名"
+          placeholder-class="input-placeholder"
+          value="{{form.name}}"
+          bindinput="onNameInput"
+          maxlength="20"
+        />
+      </view>
+
+      <!-- 手机号 -->
+      <view class="form-row">
+        <view class="form-label">手机号</view>
+        <input
+          class="form-input"
+          type="number"
+          placeholder="请输入11位手机号"
+          placeholder-class="input-placeholder"
+          value="{{form.phone}}"
+          bindinput="onPhoneInput"
+          maxlength="11"
+        />
+      </view>
+
+      <!-- 所在地区：点击选择 -->
+      <picker class="region-picker" mode="region" value="{{form.regionArr}}" bindchange="onRegionChange">
+        <view class="form-row form-row-clickable">
+          <view class="form-label">所在地区</view>
+          <view class="form-value-wrap">
+            <text wx:if="{{form.region}}" class="form-value">{{form.region}}</text>
+            <text wx:else class="form-placeholder">请选择省/市/区</text>
+          </view>
+          <view class="form-arrow">›</view>
+        </view>
+      </picker>
+
+      <!-- 地图定位入口 -->
+      <view class="locate-row" bindtap="onChooseLocation">
+        <view class="locate-icon">📍</view>
+        <view class="locate-text">使用地图选择当前位置</view>
+        <view class="form-arrow">›</view>
+      </view>
+
+      <!-- 详细地址 -->
+      <view class="form-row form-row-column">
+        <view class="form-label form-label-top">详细地址</view>
+        <textarea
+          class="form-textarea"
+          placeholder="请输入街道、楼牌号、门牌号等"
+          placeholder-class="input-placeholder"
+          value="{{form.detail}}"
+          bindinput="onDetailInput"
+          maxlength="200"
+          auto-height
+        ></textarea>
+      </view>
+
+    </view>
+
+    <!-- 默认地址开关 -->
+    <view class="switch-card">
+      <view class="switch-label">设为默认地址</view>
+      <switch
+        checked="{{form.isDefault}}"
+        bindchange="onDefaultToggle"
+        color="#B8860B"
+      />
+    </view>
+
+    <!-- 保存按钮 -->
+    <view class="save-btn" bindtap="onSave">保存地址</view>
+
+    <!-- 删除按钮（仅编辑模式显示） -->
+    <view wx:if="{{isEdit}}" class="delete-btn" bindtap="onDelete">删除此地址</view>
+
+  </view>
+</view>

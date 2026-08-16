@@ -1,0 +1,56 @@
+<view class="page">
+
+  <!-- 顶部 Header -->
+  <view class="header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="header-back" bindtap="onGoBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="header-title">关于项目</view>
+    <view class="header-menu">
+      <text class="menu-icon">⋯</text>
+    </view>
+  </view>
+  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
+
+  <view class="content">
+
+    <!-- 主视觉卡片 -->
+    <view class="hero-card">
+      <view class="hero-tag">2026 暑期『三下乡』</view>
+      <view class="hero-title">寻访珠城发展足迹</view>
+      <view class="hero-title">体悟科创红色乡兴</view>
+      <view class="hero-subtitle">安徽财经大学 × 北京林业大学联合实践团</view>
+    </view>
+
+    <!-- 实践路线 -->
+    <view class="section">
+      <view class="section-title">实践路线</view>
+      <view class="route-list">
+        <view
+          wx:for="{{routeList}}"
+          wx:key="index"
+          class="route-item"
+        >
+          <view class="badge badge-{{item.badgeType}}">{{index + 1}}</view>
+          <view class="route-name">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 图片来源与替换说明 -->
+    <view class="section">
+      <view class="section-title">图片来源与替换说明</view>
+      <view class="source-card">
+        <view
+          wx:for="{{sourceNotes}}"
+          wx:key="index"
+          class="source-item"
+        >
+          <view class="source-dot">·</view>
+          <view class="source-text">{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
