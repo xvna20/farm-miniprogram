@@ -1,0 +1,19 @@
+/* .page / .status-bar / .topbar / .back-hit / .back-icon / .topbar-title / .topbar-menu 已在 app.wxss 定义 */
+.page { padding-bottom: 44rpx; }
+.status-bar { min-height: 37px; font-size: 22rpx; line-height: 32rpx; }
+.status-time, .status-signal { position: absolute; top: 11px; }
+.status-time { left: 46rpx; }.status-signal { right: 28rpx; letter-spacing: 1rpx; }
+.topbar { height: 108rpx; }
+.back-hit { width: 112rpx; height: 108rpx; z-index: 1; }
+.back-icon { margin-left: 34rpx; margin-top: 0; font-size: 56rpx; line-height: 82rpx; }
+.topbar-title { font-size: 34rpx; line-height: 50rpx; }
+.topbar-menu { right: 20rpx; top: 20rpx; width: 108rpx; font-size: 36rpx; font-weight: 500; line-height: 52rpx; text-align: center; letter-spacing: 8rpx; }
+.content { padding: 40rpx 30rpx 0; }.hero { padding: 0 4rpx 40rpx; }
+.hero-title, .hero-subtitle, .card-tag, .card-title, .card-desc { display: block; }
+.hero-title { font-size: 48rpx; font-weight: 700; line-height: 74rpx; }.hero-subtitle { margin-top: 4rpx; font-size: 26rpx; line-height: 40rpx; }
+.cards { display: flex; flex-direction: column; gap: 20rpx; }
+.card { box-sizing: border-box; width: 100%; padding: 32rpx; border-radius: 24rpx; background: #FDFBF6; box-shadow: 0 4rpx 16rpx rgba(79,69,51,.08); }
+.card-tag { height: 40rpx; font-size: 24rpx; font-weight: 500; line-height: 38rpx; }.card-title { height: 40rpx; margin-top: 14rpx; font-size: 34rpx; font-weight: 700; line-height: 52rpx; }
+.card-desc { margin-top: 14rpx; color: #74766F; font-size: 26rpx; line-height: 40rpx; }
+.cta { position: relative; width: 100%; height: 132rpx; margin: 102rpx 0 0; }.cta-art { position: absolute; left: 0; top: -12rpx; width: 100%; height: 164rpx; }
+.cta-text { position: absolute; left: 0; top: 38rpx; z-index: 1; width: 100%; color: #FDFBF6; font-size: 40rpx; font-weight: 700; line-height: 50rpx; text-align: center; }

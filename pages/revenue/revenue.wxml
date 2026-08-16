@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
+  <view class="topbar"><view class="back-hit" bindtap="goBack"><text class="back-icon">‹</text></view><text class="topbar-title">收益分配</text></view>
+  <view class="content">
+    <view class="hero"><text class="hero-kicker">模块三 · 第三部分</text><text class="hero-title">菌菇售卖收益分配</text><text class="hero-subtitle">成本支出 · 村民薪资 · 发展再投入 · 公共积累</text></view>
+    <text class="section-title">收益分配结构</text>
+    <view class="cards">
+      <view class="revenue-card" wx:for="{{items}}" wx:key="number">
+        <view class="card-head"><view class="badge"><image class="badge-art" src="/images/revenue-step-badge.svg" mode="aspectFit" /><text class="badge-number">{{item.number}}</text></view><view class="heading"><text class="card-title">{{item.title}}</text><text class="card-tag">{{item.tag}}</text></view></view>
+        <view class="bullet-list"><text class="bullet" wx:for="{{item.lines}}" wx:for-item="line" wx:key="*this">• {{line}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>

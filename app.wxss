@@ -1,0 +1,263 @@
+/**
+ * app.wxss - 全局公共样式
+ * -------------------------------------------------------------
+ * 职责：
+ *   1. 重置小程序默认样式（Reset）
+ *   2. 封装通用工具类：flex 布局 / 卡片 / 圆角 / 间距 / 常用颜色
+ *
+ * 团队协作约定：
+ *   - 所有类名采用「小写 + 连字符」命名，且以 gp- 前缀标记为全局公共类
+ *   - 业务页面样式建议以 page 系列前缀命名，避免与全局类冲突
+ *   - 颜色变量统一在该文件维护，新增主题色请在下方统一修改
+ * -------------------------------------------------------------
+ */
+page {
+  /* ================== 全局主题变量（CSS 变量） ================== */
+  --primary-color: #B8860B;   /* 主色：青铜金 */
+  --primary-dark: #9A720A;    /* 主色深 */
+  --primary-light: #F5EFD9;   /* 主色浅底 */
+  --accent-cream: #F5F0E8;    /* 米色背景 */
+  --accent-warm: #E8DFD0;     /* 暖米色 */
+  --text-main: #2C2416;       /* 主文字：深棕 */
+  --text-secondary: #6B5D4F;  /* 次要文字 */
+  --text-placeholder: #A89B8C;/* 弱化文字 */
+  --border-color: #E8DFD0;    /* 分割线/边框 */
+  --bg-page: #F6F1E7;         /* 页面背景：米色 */
+  --bg-card: #FFFFFF;         /* 卡片背景 */
+  --radius-base: 16rpx;       /* 基础圆角 */
+  --radius-lg: 24rpx;         /* 大圆角 */
+  --spacing-xs: 10rpx;        /* 超小间距 */
+  --spacing-sm: 20rpx;        /* 小间距 */
+  --spacing-md: 30rpx;        /* 中间距 */
+  --spacing-lg: 40rpx;        /* 大间距 */
+
+  /* ================== 重置默认样式 ================== */
+  box-sizing: border-box;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-size: 28rpx;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+view,
+text,
+image,
+button,
+input,
+textarea,
+scroll-view,
+navigator {
+  box-sizing: border-box;
+}
+
+/* 统一图片表现：块级 + 防溢出 */
+image {
+  display: block;
+  width: 100%;
+}
+
+/* 去除 button 默认边框与圆角残留 */
+button::after {
+  border: none;
+}
+
+/* 去除 input/textarea 默认内边距 */
+input,
+textarea {
+  padding: 0;
+  margin: 0;
+}
+
+/* ================== 文本工具类 ================== */
+.gp-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.gp-ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.gp-text-center { text-align: center; }
+.gp-text-left   { text-align: left; }
+.gp-text-right  { text-align: right; }
+.gp-text-primary { color: var(--primary-color); }
+.gp-text-secondary { color: var(--text-secondary); }
+.gp-text-placeholder { color: var(--text-placeholder); }
+.gp-text-bold { font-weight: bold; }
+
+/* ================== flex 布局工具类 ================== */
+.gp-flex { display: flex; }
+.gp-flex-col { display: flex; flex-direction: column; }
+.gp-flex-center { display: flex; align-items: center; justify-content: center; }
+.gp-flex-between { display: flex; align-items: center; justify-content: space-between; }
+.gp-flex-around { display: flex; align-items: center; justify-content: space-around; }
+.gp-flex-wrap { flex-wrap: wrap; }
+.gp-flex-1 { flex: 1; }
+.gp-flex-2 { flex: 2; }
+
+/* 对齐辅助 */
+.gp-items-center { align-items: center; }
+.gp-items-start { align-items: flex-start; }
+.gp-items-end { align-items: flex-end; }
+.gp-justify-center { justify-content: center; }
+.gp-justify-between { justify-content: space-between; }
+.gp-justify-start { justify-content: flex-start; }
+
+/* ================== 卡片工具类 ================== */
+.gp-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.gp-card-click:active {
+  opacity: 0.85;
+  transform: scale(0.99);
+}
+
+/* ================== 圆角工具类 ================== */
+.gp-radius { border-radius: var(--radius-base); }
+.gp-radius-lg { border-radius: var(--radius-lg); }
+.gp-radius-full { border-radius: 50%; }
+
+/* ================== 间距工具类（margin / padding） ================== */
+/* margin */
+.gp-mt-xs { margin-top: var(--spacing-xs); }
+.gp-mt-sm { margin-top: var(--spacing-sm); }
+.gp-mt-md { margin-top: var(--spacing-md); }
+.gp-mt-lg { margin-top: var(--spacing-lg); }
+
+.gp-mb-xs { margin-bottom: var(--spacing-xs); }
+.gp-mb-sm { margin-bottom: var(--spacing-sm); }
+.gp-mb-md { margin-bottom: var(--spacing-md); }
+.gp-mb-lg { margin-bottom: var(--spacing-lg); }
+
+.gp-ml-xs { margin-left: var(--spacing-xs); }
+.gp-ml-sm { margin-left: var(--spacing-sm); }
+.gp-ml-md { margin-left: var(--spacing-md); }
+
+.gp-mr-xs { margin-right: var(--spacing-xs); }
+.gp-mr-sm { margin-right: var(--spacing-sm); }
+.gp-mr-md { margin-right: var(--spacing-md); }
+
+/* margin 快捷：四周/水平/垂直 */
+.gp-m-xs { margin: var(--spacing-xs); }
+.gp-m-sm { margin: var(--spacing-sm); }
+.gp-m-none { margin: 0; }
+
+/* padding */
+.gp-p-xs { padding: var(--spacing-xs); }
+.gp-p-sm { padding: var(--spacing-sm); }
+.gp-p-md { padding: var(--spacing-md); }
+.gp-plr-sm { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.gp-plr-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.gp-ptb-sm { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+
+/* ================== 其他常用工具类 ================== */
+/* 尺寸 */
+.gp-full { width: 100%; height: 100%; }
+.gp-w-full { width: 100%; }
+.gp-h-full { height: 100%; }
+
+/* 布局占位 / 安全 */
+.gp-relative { position: relative; }
+.gp-absolute { position: absolute; }
+.gp-overflow-hidden { overflow: hidden; }
+
+/* 横向滚动屏蔽 */
+.gp-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================== 页面容器公共基础样式 ================== */
+/* 各页面的 .page 只需覆盖不同的 padding-bottom 即可 */
+.page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  color: #373A35;
+  background: #F6F1E7;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+/* ================== 导航栏公共基础样式（.topbar 系）================== */
+/* 用于 mushroom / farming / health / recipe / season / safety / revenue
+   farmingDetail1/2 / mushroomDetail1/2 / redSpirit/Startup/Marketing/Future / about */
+.status-bar {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 38px;
+  color: #74766F;
+  font-size: 23.08rpx;
+  font-weight: 500;
+}
+.topbar {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  height: 103.85rpx;
+  align-items: center;
+  justify-content: center;
+  background: #FDFBF6;
+}
+.back-hit {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  width: 107.69rpx;
+  height: 103.85rpx;
+  align-items: center;
+}
+.back-icon {
+  margin-left: 34.62rpx;
+  margin-top: -7.69rpx;
+  font-size: 65.38rpx;
+  font-weight: 400;
+  line-height: 1;
+}
+.topbar-title {
+  font-size: 32.69rpx;
+  font-weight: 700;
+  line-height: 46.15rpx;
+}
+.topbar-menu {
+  position: absolute;
+  right: 26.92rpx;
+  top: 13.46rpx;
+  font-size: 34.62rpx;
+  font-weight: 700;
+  line-height: 53.85rpx;
+  letter-spacing: 7.69rpx;
+}
+
+/* ================== 导航栏公共基础样式（.nav-bar 系）================== */
+/* 用于 home / redHeart */
+.nav-bar {
+  position: relative;
+  display: flex;
+  height: 104rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #FDFBF6;
+}
+.nav-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #373A35;
+}
+.nav-back {
+  position: absolute;
+  left: 32rpx;
+  font-size: 52rpx;
+  color: #373A35;
+  line-height: 1;
+}

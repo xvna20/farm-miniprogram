@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
+  <view class="topbar"><view class="back-hit" bindtap="goBack"><text class="back-icon">‹</text></view><text class="topbar-title">皖北珍菌</text></view>
+  <view class="content">
+    <view class="hero"><text class="hero-title">皖北水土、气候生态优势</text><text class="hero-subtitle">好水、好气候、好沃土，孕育皖北珍菌</text></view>
+    <view class="cards">
+      <view class="card"><text class="card-tag">01 · 淮水润泽</text><text class="card-title">水质纯净</text><text class="card-desc">地处淮河流域核心水系，地下清冽富硒的天然好水，为菌菇灌溉提供纯净水源。</text></view>
+      <view class="card"><text class="card-tag">02 · 气候相宜</text><text class="card-title">温差绝佳</text><text class="card-desc">四季分明，昼夜温差适中，温湿度条件适配菌菇营养与鲜味物质沉淀。</text></view>
+      <view class="card"><text class="card-tag">03 · 沃野养份</text><text class="card-title">生态循环</text><text class="card-desc">依托皖北平原农业资源，精选农废秸秆做天然基料，实现绿色生态高品质种植。</text></view>
+    </view>
+    <view class="cta" bindtap="goMushroomDetail"><image class="cta-art" src="/images/eco-species-button.svg" mode="fill" /><text class="cta-text">了解本地菌种  →</text></view>
+  </view>
+</view>
