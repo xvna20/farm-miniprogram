@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
+  <view class="topbar">
+    <view class="back-hit" bindtap="goBack"><text class="back-icon">‹</text></view>
+    <text class="topbar-title">绿色种植流程</text>
+    
+  </view>
+
+  <view class="content">
+    <view class="hero">
+      <text class="hero-location">机场新村</text>
+      <text class="hero-title">全绿色无添加种植模式</text>
+      <text class="hero-tags">天然基料 · 生态大棚 · 物理控温 · 循环返田</text>
+    </view>
+
+    <text class="section-title">六步种植流程</text>
+
+    <view class="steps">
+      <view class="step-card" wx:for="{{steps}}" wx:key="number">
+        <view class="step-head">
+          <view class="badge"><image class="badge-art" src="/images/green-step-badge.svg" mode="aspectFit" /><text class="badge-number">{{item.number}}</text></view>
+          <view class="step-heading"><text class="step-title">{{item.title}}</text><text class="step-tag">{{item.tag}}</text></view>
+        </view>
+        <text class="step-desc {{item.compact ? 'step-desc-compact' : ''}}">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+</view>
