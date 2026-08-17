@@ -31,6 +31,7 @@ Page({
 
   onShow() {
     this.refreshUserInfo();
+    this.refreshOrderCounts();
   },
 
   /* 从全局数据/本地缓存刷新用户资料 */
@@ -46,6 +47,16 @@ Page({
     });
   },
 
+  /* 从本地缓存统计各状态订单数量 */
+  refreshOrderCounts() {
+    const all = tools.getStorage('orderList', []);
+    const orders = this.data.orders.map(item => ({
+      ...item,
+      count: item.key === 'all' ? all.length : all.filter(o => o.status === item.key).length
+    }));
+    this.setData({ orders });
+  },
+
   /* ===== 用户卡片 ===== */
   onEditProfile() {
     wx.navigateTo({
@@ -57,6 +68,14 @@ Page({
   onGoOrders() {
     wx.navigateTo({
       url: '/pages/user/orders/orders?tab=all'
+    });
+  },
+
+  /* 点击订单角标：按对应状态进入订单页 */
+  onGoOrdersTab(e) {
+    const key = e.currentTarget.dataset.key;
+    wx.navigateTo({
+      url: '/pages/user/orders/orders?tab=' + key
     });
   },
 

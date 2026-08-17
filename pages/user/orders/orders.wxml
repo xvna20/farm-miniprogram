@@ -29,8 +29,30 @@
 
     <!-- 订单列表（有数据时） -->
     <view wx:if="{{orderList.length > 0}}" class="order-list">
-      <view wx:for="{{orderList}}" wx:key="id" class="order-card">
-        <!-- TODO: 订单卡片样式待设计图（带数据页面）确认后补充 -->
+      <view wx:for="{{orderList}}" wx:key="orderNumber" class="order-card">
+        <view class="order-card-head">
+          <text class="order-number">单号 {{item.orderNumber}}</text>
+          <text class="order-status {{item.status}}">{{item.statusLabel}}</text>
+        </view>
+
+        <view class="order-card-body">
+          <view class="order-good" wx:for="{{item.items}}" wx:for-item="g" wx:key="productId">
+            <image class="good-img" src="{{g.image}}" mode="aspectFill"></image>
+            <view class="good-info">
+              <view class="good-name">{{g.name}}</view>
+              <view class="good-sub">{{g.shortSubtitle}}</view>
+            </view>
+            <view class="good-right">
+              <text class="good-price">¥{{g.priceText}}/{{g.unit}}</text>
+              <text class="good-num">x{{g.quantity}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-card-foot">
+          <text class="foot-time">下单时间 {{item.timeText}}</text>
+          <view class="foot-total">共{{item.itemCount}}件 · 实付 <text class="total-yen">¥{{item.totalAmount}}</text></view>
+        </view>
       </view>
     </view>
 

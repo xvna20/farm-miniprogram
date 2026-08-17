@@ -114,7 +114,7 @@ Page({
 
         const order = {
           orderNumber,
-          status: "pendingShipment",
+          status: "unshipped",
           createTime: Date.now(),
           items: this.data.orderItems,
           goodsAmount: this.data.goodsAmount,
@@ -124,11 +124,11 @@ Page({
         };
 
         const orders =
-          wx.getStorageSync("orders") || [];
+          wx.getStorageSync("orderList") || [];
 
         orders.unshift(order);
 
-        wx.setStorageSync("orders", orders);
+        wx.setStorageSync("orderList", orders);
         wx.setStorageSync("latestOrder", order);
 
         this.removePurchasedItems();
