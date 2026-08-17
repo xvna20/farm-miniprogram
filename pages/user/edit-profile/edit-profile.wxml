@@ -1,0 +1,65 @@
+<view class="page">
+
+  <!-- 顶部 Header -->
+  <view class="header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="header-back" bindtap="onGoBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="header-title">编辑资料</view>
+  </view>
+  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
+
+  <view class="content">
+
+    <!-- 头像卡片（橄榄绿背景） -->
+    <view class="avatar-card" bindtap="onChangeAvatar">
+      <view class="avatar-circle">
+        <image wx:if="{{userInfo.avatar}}" class="avatar-img" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+        <text wx:else class="avatar-text">头像</text>
+      </view>
+      <view class="avatar-info">
+        <view class="avatar-title">点击更换头像</view>
+        <view class="avatar-desc">支持 JPG、PNG，建议使用正方形图片</view>
+      </view>
+    </view>
+
+    <!-- 基本资料 -->
+    <view class="section-title">基本资料</view>
+    <view class="form-card">
+      <view class="form-item" bindtap="onEditNickname">
+        <view class="form-label">昵称</view>
+        <view class="form-value">{{userInfo.nickname}}</view>
+        <view class="form-arrow">›</view>
+      </view>
+      <view class="form-item" bindtap="onEditPhone">
+        <view class="form-label">手机号</view>
+        <view class="form-value">{{userInfo.phone}}</view>
+        <view class="form-arrow">›</view>
+      </view>
+      <picker class="form-picker" mode="selector" range="{{genderOptions}}" value="{{genderIndex}}" bindchange="onGenderChange">
+        <view class="form-item">
+          <view class="form-label">性别</view>
+          <view class="form-value">{{userInfo.gender}}</view>
+          <view class="form-arrow">›</view>
+        </view>
+      </picker>
+      <picker class="form-picker" mode="region" value="{{regionArr}}" bindchange="onRegionChange">
+        <view class="form-item">
+          <view class="form-label">所在地区</view>
+          <view class="form-value">{{userInfo.region}}</view>
+          <view class="form-arrow">›</view>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 个人简介 -->
+    <view class="section-title">个人简介</view>
+    <view class="bio-card">
+      <textarea class="bio-textarea" value="{{userInfo.bio}}" bindinput="onBioInput" placeholder="介绍一下自己吧..." placeholder-class="bio-placeholder"></textarea>
+    </view>
+
+    <!-- 保存按钮 -->
+    <view class="save-btn" bindtap="onSave">保存资料</view>
+
+  </view>
+</view>

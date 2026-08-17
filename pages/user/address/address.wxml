@@ -1,0 +1,58 @@
+<view class="page">
+
+  <!-- 顶部 Header -->
+  <view class="header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="header-back" bindtap="onGoBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="header-title">收货地址</view>
+  </view>
+  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
+
+  <view class="content">
+
+    <!-- 空状态 -->
+    <view wx:if="{{addressList.length === 0}}" class="empty-box">
+      <view class="empty-icon">📦</view>
+      <view class="empty-text">暂无收货地址</view>
+      <view class="empty-desc">点击下方按钮添加您的第一个地址</view>
+    </view>
+
+    <!-- 地址列表 -->
+    <view wx:else class="address-list">
+      <view
+        wx:for="{{addressList}}"
+        wx:key="id"
+        class="address-card"
+        bindtap="onSetDefault"
+        data-id="{{item.id}}"
+        bindlongpress="onLongPressDelete"
+      >
+        <!-- 默认标签 -->
+        <view wx:if="{{item.isDefault}}" class="default-tag">默认地址</view>
+
+        <view class="addr-main">
+          <view class="addr-top">
+            <text class="addr-name">{{item.name}}</text>
+            <text class="addr-phone">{{item.phoneDisplay}}</text>
+          </view>
+          <view class="addr-detail">{{item.region}}{{item.detail}}</view>
+        </view>
+
+        <view class="addr-edit" catchtap="onEditAddress" data-id="{{item.id}}">
+          编辑
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 底部新增按钮 -->
+  <view class="footer">
+    <view class="add-btn" bindtap="onAddAddress">
+      <text class="add-icon">+</text>
+      <text class="add-text">新增收货地址</text>
+    </view>
+  </view>
+
+</view>

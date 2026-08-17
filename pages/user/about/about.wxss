@@ -1,0 +1,196 @@
+/* ================= 页面基础 ================= */
+.page {
+  min-height: 100vh;
+  background: #f5f1e7;
+}
+
+/* ================= 顶部 Header ================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-back {
+  width: 88rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.back-icon {
+  font-size: 56rpx;
+  color: #2C2416;
+  font-weight: 300;
+}
+
+.header-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2C2416;
+  line-height: 88rpx;
+  height: 88rpx;
+  pointer-events: none;
+}
+
+.header-menu {
+  position: absolute;
+  right: 0;
+  width: 88rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  font-size: 44rpx;
+  color: #2C2416;
+  line-height: 88rpx;
+}
+
+.spacer {
+  width: 100%;
+}
+
+/* ================= 内容区 ================= */
+.content {
+  padding: 24rpx 28rpx 60rpx;
+}
+
+/* ================= 主视觉卡片 ================= */
+.hero-card {
+  background: #8f966f;
+  border-radius: 32rpx;
+  padding: 56rpx 40rpx;
+  margin-top: -130rpx;
+  margin-bottom: 40rpx;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #f5f1e7;
+  margin-bottom: 32rpx;
+}
+
+.hero-title {
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #f5f1e7;
+  line-height: 1.5;
+}
+
+.hero-subtitle {
+  font-size: 26rpx;
+  color: #f5f1e7;
+  margin-top: 24rpx;
+  line-height: 1.5;
+}
+
+/* ================= 通用 section ================= */
+.section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C2416;
+  margin-bottom: 24rpx;
+}
+
+/* ================= 实践路线 ================= */
+.route-list {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 8rpx 0;
+}
+
+.route-item {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  border-bottom: 2rpx solid #F0E8DC;
+}
+
+.route-item:last-child {
+  border-bottom: none;
+}
+
+.badge {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+/* 前三个：橙金渐变 */
+.badge-gold {
+  background: linear-gradient(135deg, #B8860B 0%, #8B6914 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4rpx 12rpx rgba(184, 134, 11, 0.3);
+}
+
+/* 后两个：浅米黄渐变 */
+.badge-cream {
+  background: linear-gradient(135deg, #E8D9A8 0%, #D5C084 100%);
+  color: #6B5D4F;
+  box-shadow: 0 4rpx 12rpx rgba(213, 192, 132, 0.3);
+}
+
+.route-name {
+  font-size: 30rpx;
+  color: #2C2416;
+  font-weight: 500;
+}
+
+/* ================= 图片来源说明 ================= */
+.source-card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 32rpx;
+}
+
+.source-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.source-item:last-child {
+  margin-bottom: 0;
+}
+
+.source-dot {
+  font-size: 32rpx;
+  color: #B8860B;
+  line-height: 1.4;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+.source-text {
+  flex: 1;
+  font-size: 26rpx;
+  color: #6B5D4F;
+  line-height: 1.6;
+}

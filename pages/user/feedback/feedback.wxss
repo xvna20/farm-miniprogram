@@ -1,0 +1,190 @@
+/* ================= 页面基础 ================= */
+.page {
+  min-height: 100vh;
+  background: #f5f1e7;
+}
+
+/* ================= 顶部 Header ================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-back {
+  width: 88rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.back-icon {
+  font-size: 56rpx;
+  color: #2C2416;
+  font-weight: 300;
+}
+
+.header-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2C2416;
+  line-height: 88rpx;
+  height: 88rpx;
+  pointer-events: none;
+}
+
+.spacer {
+  width: 100%;
+}
+
+/* ================= 内容区 ================= */
+.content {
+  padding: 0 28rpx 60rpx;
+}
+
+/* ================= 主视觉区：欢迎卡片 ================= */
+.welcome-card {
+  position: relative;
+  background: #e4e7d6;
+  border-radius: 32rpx;
+  padding: 48rpx 36rpx;
+  margin-top: -130rpx;
+  margin-bottom: 28rpx;
+  overflow: hidden;
+}
+
+.welcome-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #393c37;
+  line-height: 1.4;
+  margin-bottom: 16rpx;
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-subtitle {
+  font-size: 26rpx;
+  color: #abada1;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= 通用 section ================= */
+.section {
+  margin-bottom: 28rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C2416;
+  margin-bottom: 20rpx;
+}
+
+/* ================= 反馈类型选择 ================= */
+.type-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.type-item {
+  padding: 16rpx 32rpx;
+  background: #fdfbf6;
+  border: 4rpx solid #b7b99e;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  color: #6B5D4F;
+  transition: all 0.2s;
+}
+
+.type-item-active {
+  background: #B8860B;
+  border-color: #B8860B;
+  color: #FFFFFF;
+  font-weight: 500;
+  box-shadow: 0 4rpx 12rpx rgba(184, 134, 11, 0.3);
+}
+
+/* ================= 描述文本框 ================= */
+.textarea-wrap {
+  position: relative;
+  background: #fdfbf6;
+  border: 2rpx solid #E8DFD0;
+  border-radius: 24rpx;
+  padding: 28rpx;
+}
+
+.feedback-textarea {
+  width: 100%;
+  min-height: 200rpx;
+  font-size: 28rpx;
+  color: #2C2416;
+  line-height: 1.6;
+}
+
+.word-count {
+  position: absolute;
+  right: 28rpx;
+  bottom: 20rpx;
+  font-size: 24rpx;
+  color: #A89B8C;
+}
+
+.input-placeholder {
+  color: #A89B8C;
+}
+
+/* ================= 联系方式 ================= */
+.contact-label {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C2416;
+  margin-bottom: 20rpx;
+}
+
+.contact-wrap {
+  background: #fdfbf6;
+  border: 2rpx solid #E8DFD0;
+  border-radius: 24rpx;
+  padding: 28rpx;
+}
+
+.contact-input {
+  width: 100%;
+  font-size: 28rpx;
+  color: #2C2416;
+}
+
+/* ================= 提交按钮 ================= */
+.submit-btn {
+  background: linear-gradient(135deg, #B8860B 0%, #8B6914 100%);
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  line-height: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  margin-top: 48rpx;
+  box-shadow: 0 8rpx 24rpx rgba(184, 134, 11, 0.3);
+}
+
+.submit-btn:active {
+  opacity: 0.85;
+  transform: scale(0.99);
+}

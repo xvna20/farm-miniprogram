@@ -22,7 +22,7 @@ page {
   --text-secondary: #6B5D4F;  /* 次要文字 */
   --text-placeholder: #A89B8C;/* 弱化文字 */
   --border-color: #E8DFD0;    /* 分割线/边框 */
-  --bg-page: #F6F1E7;         /* 页面背景：米色 */
+--bg-page: #F6F1E7;         /* 页面背景：米色 */
   --bg-card: #FFFFFF;         /* 卡片背景 */
   --radius-base: 16rpx;       /* 基础圆角 */
   --radius-lg: 24rpx;         /* 大圆角 */

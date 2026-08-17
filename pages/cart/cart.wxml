@@ -1,0 +1,174 @@
+<view class="page">
+
+<!-- 有商品 -->
+<block wx:if="{{cartItems.length > 0}}">
+
+  <view class="cart-list">
+
+    <view
+      class="cart-card"
+      wx:for="{{cartItems}}"
+      wx:key="productId"
+    >
+
+      <!-- 选择按钮 -->
+      <view
+        class="check-button {{item.selected ? 'checked' : ''}}"
+        data-id="{{item.productId}}"
+        bindtap="toggleItem"
+      >
+        <text wx:if="{{item.selected}}">✓</text>
+      </view>
+
+
+      <!-- 商品图片 -->
+      <view class="product-image">
+
+        <image
+          wx:if="{{item.image}}"
+          class="real-image"
+          src="{{item.image}}"
+          mode="aspectFill"
+        />
+
+        <text
+          wx:else
+          class="image-text"
+        >
+          {{item.imageText}}
+        </text>
+
+      </view>
+
+
+      <!-- 商品信息 -->
+      <view class="product-info">
+
+        <view class="product-name">
+          {{item.name}}
+        </view>
+
+        <view class="product-subtitle">
+          {{item.shortSubtitle}}
+        </view>
+
+        <view class="product-price">
+          ¥ {{item.priceText}} / {{item.unit}}
+        </view>
+
+
+        <!-- 数量控制 -->
+        <view class="quantity-box">
+
+          <view
+            class="quantity-button"
+            data-id="{{item.productId}}"
+            bindtap="decreaseQuantity"
+          >
+            −
+          </view>
+
+          <view class="quantity-number">
+            {{item.quantity}}
+          </view>
+
+          <view
+            class="quantity-button"
+            data-id="{{item.productId}}"
+            bindtap="increaseQuantity"
+          >
+            ＋
+          </view>
+
+        </view>
+
+      </view>
+
+
+      <!-- 删除 -->
+      <view
+        class="delete-button"
+        data-id="{{item.productId}}"
+        bindtap="deleteItem"
+      >
+        删除
+      </view>
+
+    </view>
+
+  </view>
+
+
+  <!-- 底部结算 -->
+  <view class="settlement-bar">
+
+    <view class="select-area">
+
+      <view
+        class="check-button {{allSelected ? 'checked' : ''}}"
+        bindtap="toggleAll"
+      >
+        <text wx:if="{{allSelected}}">✓</text>
+      </view>
+
+      <text class="select-all-text">
+        全选
+      </text>
+
+    </view>
+
+
+    <view class="settlement-info">
+
+      <view class="selected-count">
+        已选 {{selectedCount}} 件
+      </view>
+
+      <view class="total-area">
+        <text class="total-label">合计</text>
+        <text class="total-price">¥ {{totalPrice}}</text>
+      </view>
+
+    </view>
+
+
+    <view
+      class="checkout-button"
+      bindtap="goToCheckout"
+    >
+      去结算
+    </view>
+
+  </view>
+
+</block>
+
+
+<!-- 空购物车 -->
+<view
+  class="empty-cart"
+  wx:else
+>
+
+  <view class="empty-bag">
+    🛍
+  </view>
+
+  <view class="empty-title">
+    购物车还是空的
+  </view>
+
+  <view class="empty-description">
+    去商城挑选皖北新鲜菌菇吧
+  </view>
+
+  <view
+    class="go-mall-button"
+    bindtap="goToMall"
+  >
+    去商城逛逛
+  </view>
+
+</view>
+
+</view>

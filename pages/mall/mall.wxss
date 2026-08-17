@@ -1,0 +1,282 @@
+page {
+  background-color: #f7f1e7;
+  min-height: 100%;
+  color: #2f302b;
+}
+
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 28rpx 32rpx 160rpx;
+}
+
+
+/* =========================
+   搜索框
+   ========================= */
+
+.search-box {
+  height: 76rpx;
+  background-color: #ffffff;
+  border-radius: 40rpx;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 28rpx;
+
+  box-sizing: border-box;
+}
+
+.search-icon {
+  font-size: 36rpx;
+  color: #77776f;
+  margin-right: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 27rpx;
+  color: #333333;
+}
+
+.search-placeholder {
+  color: #aaa79e;
+}
+
+
+/* =========================
+   助农宣传区域
+   ========================= */
+
+.hero-card {
+  margin-top: 28rpx;
+
+  background-color: #e4ead9;
+  border-radius: 24rpx;
+
+  padding: 28rpx 32rpx 30rpx;
+}
+
+.hero-small {
+  color: #b88e3d;
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.hero-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 8rpx;
+}
+
+.hero-description {
+  font-size: 25rpx;
+  color: #66695e;
+}
+
+
+/* =========================
+   分类
+   ========================= */
+
+.category-list {
+  margin-top: 28rpx;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18rpx;
+}
+
+.category-item {
+  min-width: 112rpx;
+  height: 56rpx;
+
+  padding: 0 24rpx;
+
+  border: 2rpx solid #b7934c;
+  border-radius: 30rpx;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25rpx;
+  color: #554b39;
+
+  background-color: transparent;
+}
+
+.category-active {
+  background-color: #c79a45;
+  color: #ffffff;
+  border-color: #c79a45;
+}
+
+
+/* =========================
+   商品
+   ========================= */
+
+.product-grid {
+  margin-top: 26rpx;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.product-card {
+  background-color: #ffffff;
+
+  border-radius: 22rpx;
+
+  overflow: hidden;
+
+  box-shadow: 0 6rpx 20rpx rgba(70, 58, 35, 0.06);
+}
+
+.product-image {
+  width: 100%;
+  height: 170rpx;
+
+  background-color: #e9e4d8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-text {
+  color: #8f876f;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.real-product-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.product-info {
+  padding: 12rpx 18rpx;
+}
+
+.product-name {
+  font-size: 29rpx;
+  font-weight: 700;
+
+  margin-bottom: 8rpx;
+}
+
+.product-subtitle {
+  font-size: 23rpx;
+  color: #8b887f;
+
+  margin-bottom: 14rpx;
+}
+
+.product-price {
+  color: #bf9143;
+  display: flex;
+  align-items: baseline;
+}
+
+.price-symbol {
+  font-size: 24rpx;
+  margin-right: 4rpx;
+}
+
+.price-number {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.price-unit {
+  font-size: 22rpx;
+  margin-left: 4rpx;
+}
+
+
+/* =========================
+   没有商品
+   ========================= */
+
+.empty-result {
+  margin-top: 120rpx;
+
+  text-align: center;
+
+  color: #99968d;
+}
+
+.empty-title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.empty-description {
+  font-size: 24rpx;
+  margin-top: 12rpx;
+}
+
+
+/* =========================
+   悬浮购物车
+   ========================= */
+
+.cart-button {
+  position: fixed;
+
+  right: 42rpx;
+  bottom: 150rpx;
+
+  width: 88rpx;
+  height: 88rpx;
+
+  border-radius: 50%;
+
+  background-color: #c79a45;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8rpx 20rpx rgba(105, 80, 34, 0.22);
+}
+
+.cart-icon {
+  font-size: 36rpx;
+  line-height: 1;
+  transform: translateY(-6rpx);
+}
+
+.cart-badge {
+  position: absolute;
+
+  right: -4rpx;
+  top: -14rpx;
+
+  min-width: 34rpx;
+  height: 34rpx;
+
+  padding: 0 8rpx;
+
+  box-sizing: border-box;
+
+  border-radius: 20rpx;
+
+  background-color: #bd9142;
+  color: #ffffff;
+
+  font-size: 20rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

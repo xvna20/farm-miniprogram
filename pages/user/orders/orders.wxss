@@ -1,0 +1,173 @@
+/* ================= 页面基础 ================= */
+.page {
+  min-height: 100vh;
+  background: #f5f1e7;
+}
+
+/* ================= 顶部 Header ================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-back {
+  width: 88rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.back-icon {
+  font-size: 56rpx;
+  color: #2C2416;
+  font-weight: 300;
+}
+
+.header-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2C2416;
+  line-height: 88rpx;
+  height: 88rpx;
+  pointer-events: none;
+}
+
+.header-menu {
+  position: absolute;
+  right: 0;
+  width: 88rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  font-size: 44rpx;
+  color: #2C2416;
+  line-height: 88rpx;
+}
+
+.spacer {
+  width: 100%;
+}
+
+/* ================= 区块标题 ================= */
+.order-section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C2416;
+  padding: 28rpx 28rpx 8rpx;
+  margin-top: -150rpx;
+}
+
+/* ================= Tab 切换栏 ================= */
+.tabs {
+  display: flex;
+  padding: 20rpx 28rpx;
+  gap: 16rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #6B5D4F;
+  background: #FFFFFF;
+  border: 2rpx solid #E8DFD0;
+  border-radius: 40rpx;
+  padding: 14rpx 0;
+}
+
+.tab-active {
+  background: #8f966f;
+  border-color: #8f966f;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* ================= 内容区 ================= */
+.content {
+  padding: 0 28rpx 60rpx;
+}
+
+/* ================= 空状态 ================= */
+.empty-state {
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  padding: 80rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.empty-circle {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: #e4e7d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32rpx;
+}
+
+.empty-char {
+  font-size: 56rpx;
+  font-weight: 600;
+  color: #8f966f;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C2416;
+  margin-bottom: 16rpx;
+}
+
+.empty-sub {
+  font-size: 26rpx;
+  color: #6B5D4F;
+  margin-bottom: 48rpx;
+  text-align: center;
+}
+
+.empty-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #B8860B 0%, #8B6914 100%);
+  color: #FFFFFF;
+  font-size: 30rpx;
+  font-weight: 600;
+  text-align: center;
+  line-height: 88rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  box-shadow: 0 8rpx 24rpx rgba(184, 134, 11, 0.3);
+}
+
+.empty-btn:active {
+  opacity: 0.85;
+  transform: scale(0.99);
+}
+
+/* ================= 底部说明 ================= */
+.footer-tip {
+  text-align: center;
+  font-size: 22rpx;
+  color: #A89B8C;
+  padding: 24rpx 0;
+}

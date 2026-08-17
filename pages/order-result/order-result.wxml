@@ -1,0 +1,83 @@
+<view
+  class="page"
+  wx:if="{{order}}"
+>
+
+  <!-- 成功图标 -->
+  <view class="success-icon">
+    ✓
+  </view>
+
+
+  <!-- 成功文字 -->
+  <view class="success-title">
+    订单提交成功
+  </view>
+
+  <view class="success-subtitle">
+    感谢支持皖北乡村产业振兴
+  </view>
+
+
+  <!-- 订单信息 -->
+  <view class="order-card">
+
+    <view class="info-row">
+
+      <text class="info-label">
+        订单编号
+      </text>
+
+      <text class="info-value order-number">
+        {{order.orderNumber}}
+      </text>
+
+    </view>
+
+
+    <view class="info-row">
+
+      <text class="info-label">
+        实付金额
+      </text>
+
+      <text class="amount">
+        ¥ {{order.totalAmount}}
+      </text>
+
+    </view>
+
+
+    <view class="delivery-tip">
+      预计明日送达，请留意配送通知
+    </view>
+
+  </view>
+
+
+  <!-- 演示提示 -->
+  <view class="demo-tip">
+    本订单为暑期实践项目模拟订单，不产生真实交易
+  </view>
+
+
+  <!-- 操作按钮 -->
+  <view class="button-area">
+
+    <view
+      class="primary-button"
+      bindtap="goToOrders"
+    >
+      查看我的订单
+    </view>
+
+    <view
+      class="secondary-button"
+      bindtap="goToHome"
+    >
+      返回首页
+    </view>
+
+  </view>
+
+</view>
