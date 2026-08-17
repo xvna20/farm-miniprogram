@@ -28,7 +28,7 @@
         <view class="order-all" bindtap="onGoOrders">全部订单 ›</view>
       </view>
       <view class="order-stats">
-        <view class="order-item" wx:for="{{orders}}" wx:key="key">
+        <view class="order-item" wx:for="{{orders}}" wx:key="key" bindtap="onGoOrdersTab" data-key="{{item.key}}">
           <view class="order-count">{{item.count}}</view>
           <view class="order-label">{{item.label}}</view>
         </view>

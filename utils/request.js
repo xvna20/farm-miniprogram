@@ -48,10 +48,23 @@ const DEFAULT_CONFIG = {
  * @param {Object} options 扩展配置（覆盖 DEFAULT_CONFIG）
  * @returns {Promise}      resolve 业务数据 / reject 抛错
  */
+// 环境配置（与 app.js 保持同步）
+const ENV_CONFIG = {
+  development: {
+    baseUrl: 'https://dev-api.farm.example.com',
+    apiPrefix: '/api/v1'
+  },
+  production: {
+    baseUrl: 'https://api.farm.example.com',
+    apiPrefix: '/api/v1'
+  }
+};
+
 function request(method, url, data = {}, options = {}) {
   // 合并配置
   const config = { ...DEFAULT_CONFIG, ...options };
-  const { baseUrl = '', apiPrefix = '' } = app.globalData.env || {};
+  const envConfig = ENV_CONFIG[app.globalData.env] || ENV_CONFIG.development;
+  const { baseUrl, apiPrefix } = envConfig;
 
   // ---- 需要登录态但未登录：统一拦截 ----
   if (config.needAuth && !app.globalData.token) {
@@ -149,7 +162,8 @@ function del(url, data, options) {
  */
 function upload(url, filePath, formData = {}, options = {}) {
   const config = { ...DEFAULT_CONFIG, ...options };
-  const { baseUrl = '', apiPrefix = '' } = app.globalData.env || {};
+  const envConfig = ENV_CONFIG[app.globalData.env] || ENV_CONFIG.development;
+  const { baseUrl, apiPrefix } = envConfig;
 
   if (config.showLoading) {
     wx.showLoading({ title: config.loadingText, mask: true });

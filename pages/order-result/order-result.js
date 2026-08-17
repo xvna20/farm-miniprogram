@@ -42,7 +42,7 @@ Page({
   // 返回首页
   goToHome() {
     wx.switchTab({
-      url: "/pages/index/index"
+      url: "/pages/home/home"
     });
   }
 });

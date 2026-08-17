@@ -22,7 +22,7 @@ page {
   --text-secondary: #6B5D4F;  /* 次要文字 */
   --text-placeholder: #A89B8C;/* 弱化文字 */
   --border-color: #E8DFD0;    /* 分割线/边框 */
-  --bg-page: #F5F0E8;         /* 页面背景：米色 */
+--bg-page: #F6F1E7;         /* 页面背景：米色 */
   --bg-card: #FFFFFF;         /* 卡片背景 */
   --radius-base: 16rpx;       /* 基础圆角 */
   --radius-lg: 24rpx;         /* 大圆角 */
@@ -175,4 +175,89 @@ textarea {
 /* 横向滚动屏蔽 */
 .gp-no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* ================== 页面容器公共基础样式 ================== */
+/* 各页面的 .page 只需覆盖不同的 padding-bottom 即可 */
+.page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  color: #373A35;
+  background: #F6F1E7;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+/* ================== 导航栏公共基础样式（.topbar 系）================== */
+/* 用于 mushroom / farming / health / recipe / season / safety / revenue
+   farmingDetail1/2 / mushroomDetail1/2 / redSpirit/Startup/Marketing/Future / about */
+.status-bar {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 38px;
+  color: #74766F;
+  font-size: 23.08rpx;
+  font-weight: 500;
+}
+.topbar {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  height: 103.85rpx;
+  align-items: center;
+  justify-content: center;
+  background: #FDFBF6;
+}
+.back-hit {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  width: 107.69rpx;
+  height: 103.85rpx;
+  align-items: center;
+}
+.back-icon {
+  margin-left: 34.62rpx;
+  margin-top: -7.69rpx;
+  font-size: 65.38rpx;
+  font-weight: 400;
+  line-height: 1;
+}
+.topbar-title {
+  font-size: 32.69rpx;
+  font-weight: 700;
+  line-height: 46.15rpx;
+}
+.topbar-menu {
+  position: absolute;
+  right: 26.92rpx;
+  top: 13.46rpx;
+  font-size: 34.62rpx;
+  font-weight: 700;
+  line-height: 53.85rpx;
+  letter-spacing: 7.69rpx;
+}
+
+/* ================== 导航栏公共基础样式（.nav-bar 系）================== */
+/* 用于 home / redHeart */
+.nav-bar {
+  position: relative;
+  display: flex;
+  height: 104rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #FDFBF6;
+}
+.nav-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #373A35;
+}
+.nav-back {
+  position: absolute;
+  left: 32rpx;
+  font-size: 52rpx;
+  color: #373A35;
+  line-height: 1;
 }

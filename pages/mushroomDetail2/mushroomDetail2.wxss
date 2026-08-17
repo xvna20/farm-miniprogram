@@ -1,0 +1,18 @@
+/* .page / .status-bar / .topbar / .back-hit / .back-icon / .topbar-title / .topbar-menu 已在 app.wxss 定义 */
+.page { padding-bottom: 203.85rpx; }
+.status-time, .status-signal { position: absolute; top: 14px; line-height: 1; }
+.status-time { left: 46.15rpx; }.status-signal { right: 36.54rpx; color: #373A35; font-size: 19.23rpx; }
+.content { padding: 0 36.54rpx; }
+.page-title, .page-subtitle, .species-tag, .species-title, .info-title, .info-desc { display: block; }
+.page-title { margin-top: 1.92rpx; font-size: 42.31rpx; font-weight: 700; line-height: 61.54rpx; }
+.page-subtitle { margin-top: 3.85rpx; color: #74766F; font-size: 23.08rpx; line-height: 34.62rpx; }
+.tabs { display: flex; justify-content: space-between; margin-top: 32.69rpx; }
+.tab { display: flex; box-sizing: border-box; height: 76.92rpx; align-items: center; justify-content: center; border-radius: 38.46rpx; font-size: 26.92rpx; font-weight: 500; }
+.tab-inactive { width: 315.38rpx; background: #E4E7D6; }.tab-active { width: 319.23rpx; color: #FDFBF6; background: #8F9670; }
+.species-hero { box-sizing: border-box; height: 150rpx; margin-top: 38.46rpx; padding: 28.85rpx 38.46rpx; overflow: hidden; border-radius: 23.08rpx; background: #E4E7D6; }
+.species-tag { height: 38.46rpx; color: #74766F; font-size: 23.08rpx; font-weight: 500; line-height: 38.46rpx; }
+.species-title { height: 38.46rpx; margin-top: 5.77rpx; font-size: 40.38rpx; font-weight: 700; line-height: 38.46rpx; }
+.info-card { box-sizing: border-box; padding: 30.77rpx 36.54rpx; overflow: hidden; border: 1px solid #E5DED1; border-radius: 23.08rpx; background: #FDFBF6; box-shadow: 0 5.77rpx 19.23rpx rgba(56,59,54,.07); }
+.intro-card { height: 240.38rpx; margin-top: 30.77rpx; }.feature-card { height: 240.38rpx; margin-top: 30.77rpx; }.identify-card { height: 278.85rpx; margin-top: 30.77rpx; }
+.info-title { height: 38.46rpx; font-size: 28.85rpx; font-weight: 700; line-height: 38.46rpx; }
+.info-desc { margin-top: 19.23rpx; color: #74766F; font-size: 23.08rpx; line-height: 38.46rpx; white-space: pre-line; }

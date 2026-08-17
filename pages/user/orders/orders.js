@@ -47,7 +47,23 @@ Page({
     if (currentTab !== 'all') {
       list = all.filter(item => item.status === currentTab);
     }
-    this.setData({ orderList: list });
+    this.setData({ orderList: this.formatOrders(list) });
+  },
+
+  /* 补充订单展示字段：状态文案 / 商品总件数 / 下单时间 */
+  formatOrders(list) {
+    const labelMap = {
+      unpaid: '待付款',
+      unshipped: '待发货',
+      unreceived: '待收货',
+      done: '已完成'
+    };
+    return list.map(order => ({
+      ...order,
+      statusLabel: labelMap[order.status] || order.status,
+      itemCount: (order.items || []).reduce((sum, it) => sum + Number(it.quantity || 0), 0),
+      timeText: tools.formatTime(order.createTime, 'MM-DD HH:mm')
+    }));
   },
 
   /* 更新当前 tab 的空状态文案到 data */

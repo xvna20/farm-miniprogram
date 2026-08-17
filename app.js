@@ -50,6 +50,8 @@ App({
   globalData: {
     // 当前环境配置（通过官方 API 获取运行环境，release 为正式版）
     env: getEnv(),
+// 状态栏高度（各页面自定义导航栏使用，onLaunch 初始化）
+    statusBarHeight: 0,
     // 登录态 token（接口鉴权时携带）
     token: '',
     // 登录状态标记
@@ -66,6 +68,13 @@ App({
    * 生命周期 - 小程序初始化时触发（全局只触发一次）
    */
   onLaunch() {
+// 初始化状态栏高度（全局共享，避免各页面重复调用 wx.getSystemInfoSync）
+    try {
+      this.globalData.statusBarHeight = wx.getSystemInfoSync().statusBarHeight || 20;
+    } catch (e) {
+      this.globalData.statusBarHeight = 20;
+    }
+
     // 初始化云开发（头像等文件上传云存储），需先在开发者工具中开通云开发
     if (wx.cloud) {
       wx.cloud.init({ env: 'cloud1-d5gmj24xffe354a63' });

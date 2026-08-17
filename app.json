@@ -1,19 +1,36 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/home/home",
+    "pages/redHeart/redHeart",
+    "pages/redSpirit/redSpirit",
+    "pages/redStartup/redStartup",
+    "pages/redMarketing/redMarketing",
+    "pages/redFuture/redFuture",
+    "pages/mushroom/mushroom",
+    "pages/mushroomDetail1/mushroomDetail1",
+    "pages/mushroomDetail2/mushroomDetail2",
+    "pages/farming/farming",
+    "pages/farmingDetail1/farmingDetail1",
+    "pages/farmingDetail2/farmingDetail2",
+    "pages/revenue/revenue",
+    "pages/health/health",
+    "pages/recipe/recipe",
+    "pages/season/season",
+    "pages/about/about",
+    "pages/safety/safety",
     "pages/mall/mall",
     "pages/user/user",
-    "pages/product-detail/product-detail",
-    "pages/cart/cart",
-    "pages/confirm-order/confirm-order",
-    "pages/order-result/order-result",
     "pages/user/edit-profile/edit-profile",
     "pages/user/edit-profile/avatar-crop",
     "pages/user/address/address",
     "pages/user/address-edit/address-edit",
     "pages/user/feedback/feedback",
     "pages/user/about/about",
-    "pages/user/orders/orders"
+    "pages/user/orders/orders",
+    "pages/product-detail/product-detail",
+    "pages/cart/cart",
+    "pages/confirm-order/confirm-order",
+    "pages/order-result/order-result"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -36,12 +53,12 @@
   },
   "tabBar": {
     "color": "#000000",
-    "selectedColor": "#1FAE5A",
+    "selectedColor": "#B8860B",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "static/tab/home.png",
         "selectedIconPath": "static/tab/home-active.png"
@@ -61,6 +78,6 @@
     ]
   },
   "lazyCodeLoading": "requiredComponents",
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
 }
