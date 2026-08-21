@@ -1,0 +1,9 @@
+{
+  "name": "saveUserInfo",
+  "version": "1.0.0",
+  "description": "保存/更新用户资料到 users 集合",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

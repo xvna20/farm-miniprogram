@@ -4,6 +4,8 @@
  */
 const app = getApp();
 const tools = require('../../utils/tools');
+const usage = require('../../utils/usage');
+const { deriveOrderStatus } = require('../../utils/order');
 
 Page({
   data: {
@@ -32,24 +34,30 @@ Page({
   onShow() {
     this.refreshUserInfo();
     this.refreshOrderCounts();
+    usage.push('page_view', { page: 'user' });
   },
 
-  /* 从全局数据/本地缓存刷新用户资料 */
+  /* 从云端/全局数据/本地缓存刷新用户资料 */
   refreshUserInfo() {
-    const info = app.globalData.userInfo || tools.getStorage('userInfo', null);
-    if (!info) return;
-    this.setData({
-      userInfo: {
-        nickname: info.nickname || this.data.userInfo.nickname,
-        bio: info.bio || this.data.userInfo.bio,
-        avatar: info.avatar || ''
-      }
+    app.getUserProfile().then((info) => {
+      if (!info) return;
+      this.setData({
+        userInfo: {
+          nickname: info.nickname || this.data.userInfo.nickname,
+          bio: info.bio || this.data.userInfo.bio,
+          avatar: info.avatar || ''
+        }
+      });
     });
   },
 
-  /* 从本地缓存统计各状态订单数量 */
+  /* 从本地缓存统计各状态订单数量（先按时间推导状态） */
   refreshOrderCounts() {
-    const all = tools.getStorage('orderList', []);
+    const now = Date.now();
+    const all = tools.getStorage('orderList', []).map(o => ({
+      ...o,
+      status: deriveOrderStatus(o, now)
+    }));
     const orders = this.data.orders.map(item => ({
       ...item,
       count: item.key === 'all' ? all.length : all.filter(o => o.status === item.key).length

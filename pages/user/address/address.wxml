@@ -11,6 +11,11 @@
 
   <view class="content">
 
+    <!-- 选择模式提示 -->
+    <view wx:if="{{selectMode}}" class="select-tip">
+      请选择收货地址
+    </view>
+
     <!-- 空状态 -->
     <view wx:if="{{addressList.length === 0}}" class="empty-box">
       <view class="empty-icon">📦</view>
@@ -24,7 +29,7 @@
         wx:for="{{addressList}}"
         wx:key="id"
         class="address-card"
-        bindtap="onSetDefault"
+        bindtap="onCardTap"
         data-id="{{item.id}}"
         bindlongpress="onLongPressDelete"
       >

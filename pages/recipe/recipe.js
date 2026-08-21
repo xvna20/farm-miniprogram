@@ -2,7 +2,7 @@ const router = require('../../utils/router')
 
 const species = {
   shiitake: {
-    title: '香菇', base: '机场新村基地', image: '/images/shiitake-hero.png',
+    title: '香菇', base: '机场新村基地',     image: '/images/shiitake-hero.jpg',
     lines: ['富含真菌多糖与麦角甾醇，麦角甾醇经日晒可转化为维生素D，促进钙质吸收。', '自带浓郁菇香（香菇精），有助于降低有害胆固醇，保护心血管。', '香蕈多醣体可提高免疫细胞活力，适合体质偏弱、易感冒人群。']
   },
   oyster: {
@@ -38,6 +38,9 @@ Page({
     })
   },
   goBack() {
+    router.back()
+  },
+  backToHealth() {
     router.back()
   },
   selectSpecies(event) {

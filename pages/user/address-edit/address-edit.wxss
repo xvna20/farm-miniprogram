@@ -51,7 +51,7 @@
 
 /* ================= 内容区 ================= */
 .content {
-  padding: 24rpx 28rpx 60rpx;
+  padding: 0 28rpx 60rpx;
 }
 
 /* ================= 表单卡片 ================= */
@@ -59,6 +59,7 @@
   background: #FFFFFF;
   border-radius: 32rpx;
   padding: 8rpx 0;
+  margin-top: -110rpx;
   margin-bottom: 28rpx;
   overflow: hidden;
 }

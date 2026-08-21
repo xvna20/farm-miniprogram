@@ -54,6 +54,14 @@
   padding: 0 28rpx 60rpx;
 }
 
+/* ================= 选择模式提示 ================= */
+.select-tip {
+  margin: -100rpx 0 24rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #6B5D4F;
+}
+
 /* ================= 空状态 ================= */
 .empty-box {
   display: flex;

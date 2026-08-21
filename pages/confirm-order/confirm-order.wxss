@@ -77,6 +77,12 @@ page {
   color: #8c887f;
 }
 
+.address-empty {
+  font-size: 27rpx;
+  color: #b0893f;
+  font-weight: 600;
+}
+
 .arrow {
   margin-left: 20rpx;
 

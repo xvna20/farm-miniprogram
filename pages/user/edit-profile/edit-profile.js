@@ -4,6 +4,7 @@
  */
 const app = getApp();
 const tools = require('../../../utils/tools');
+const cloud = require('../../../utils/cloud');
 
 Page({
   data: {
@@ -146,6 +147,8 @@ Page({
       userInfo.regionArr = this.data.regionArr;
       tools.setStorage('userInfo', userInfo);
       app.globalData.userInfo = userInfo;
+      // 同步到云端（失败静默，本地仍可用）
+      cloud.safeCall('saveUserInfo', { userInfo });
       wx.showToast({
         title: '保存成功',
         icon: 'success',

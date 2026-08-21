@@ -12,7 +12,10 @@
 
   <view class="address-main">
 
-    <view class="address-content">
+    <view
+      wx:if="{{address}}"
+      class="address-content"
+    >
 
       <view class="receiver-line">
         <text class="receiver-name">
@@ -20,7 +23,7 @@
         </text>
 
         <text class="receiver-phone">
-          {{address.phone}}
+          {{address.phoneDisplay}}
         </text>
       </view>
 
@@ -28,6 +31,13 @@
         {{address.detail}}
       </view>
 
+    </view>
+
+    <view
+      wx:else
+      class="address-content address-empty"
+    >
+      请选择收货地址
     </view>
 
     <view class="arrow">

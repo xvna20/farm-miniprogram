@@ -281,6 +281,15 @@
   color: #B8860B;
 }
 
+/* ================= 待付款继续付款 ================= */
+.pay-entry {
+  margin-top: 14rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: #B8860B;
+  font-weight: 600;
+}
+
 /* ================= 底部说明 ================= */
 .footer-tip {
   text-align: center;

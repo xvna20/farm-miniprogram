@@ -1,0 +1,9 @@
+{
+  "name": "getOrders",
+  "version": "1.0.0",
+  "description": "获取该用户的全部订单",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

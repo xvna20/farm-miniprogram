@@ -1,4 +1,5 @@
 const { products } = require("../../data/products.js");
+const usage = require("../../utils/usage");
 
 Page({
   data: {
@@ -30,6 +31,7 @@ Page({
 
   onShow() {
     this.updateCartCount();
+    usage.push('page_view', { page: 'mall' });
   },
 
   onSearchInput(e) {

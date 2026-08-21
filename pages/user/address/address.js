@@ -6,13 +6,15 @@ const tools = require('../../../utils/tools');
 Page({
   data: {
     statusBarHeight: 20,
-    addressList: []
+    addressList: [],
+    selectMode: false
   },
 
-  onLoad() {
+  onLoad(options) {
     const sysInfo = wx.getWindowInfo();
     this.setData({
-      statusBarHeight: sysInfo.statusBarHeight || 20
+      statusBarHeight: sysInfo.statusBarHeight || 20,
+      selectMode: !!(options && options.select === '1')
     });
   },
 
@@ -56,6 +58,25 @@ Page({
     wx.navigateTo({
       url: '/pages/user/address-edit/address-edit?id=' + id
     });
+  },
+
+  /* 点击地址卡片：选择模式下选中返回，普通模式设为默认 */
+  onCardTap(e) {
+    if (this.data.selectMode) {
+      this.onSelectAddress(e);
+      return;
+    }
+    this.onSetDefault(e);
+  },
+
+  /* 选择模式下：选中该地址并返回 */
+  onSelectAddress(e) {
+    const id = e.currentTarget.dataset.id;
+    const list = tools.getStorage('addressList', []);
+    const target = list.find(item => item.id === id);
+    if (!target) return;
+    tools.setStorage('selectedOrderAddress', target);
+    wx.navigateBack({ delta: 1 });
   },
 
   /* 设置默认地址 */

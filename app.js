@@ -28,6 +28,9 @@ const ENV_CONFIG = {
   }
 };
 
+const tools = require('./utils/tools');
+const usage = require('./utils/usage');
+
 /**
  * 获取当前运行环境
  * @returns {String} 'production' | 'development'
@@ -56,6 +59,8 @@ App({
     token: '',
     // 登录状态标记
     isLogin: false,
+    // 云端 openid（静默登录后填充）
+    openid: '',
     // 用户信息
     userInfo: null,
     // 域名信息：开发环境可选择是否开启调试（request.js 会读取）
@@ -81,22 +86,72 @@ App({
     }
 
     // 读取本地缓存的登录态，用于冷启动恢复
-    const tools = require('./utils/tools');
     const token = tools.getStorage('token', '');
     const userInfo = tools.getStorage('userInfo', null);
     this.globalData.token = token;
     this.globalData.userInfo = userInfo;
     this.globalData.isLogin = !!token;
 
+    // 静默登录（云端识别用户 / 拉取云端资料），失败自动降级不阻塞启动
+    this.ensureLogin();
+
+    // 记录启动事件
+    usage.push('launch', { env: this.globalData.env });
+
     // 若项目配置开启调试，可在控制台查看环境信息
     console.log('[App] onLaunch 环境配置：', this.globalData.env);
+  },
+
+  /**
+   * 静默登录：调用 login 云函数，通过 openid 识别用户
+   * - 云端已有资料 -> 回填本地缓存
+   * - 云端无资料但有本地旧资料 -> 同步到云端（首次迁移）
+   */
+  ensureLogin() {
+    if (this.loginPromise) return this.loginPromise;
+    const cloud = require('./utils/cloud');
+
+    this.loginPromise = cloud.call('login')
+      .then((user) => {
+        this.globalData.openid = (user && user._openid) || '';
+        const hasCloudData = user && (user.nickname || user.avatar || user.bio);
+        const local = tools.getStorage('userInfo', null);
+
+        if (hasCloudData) {
+          this.globalData.userInfo = user;
+          tools.setStorage('userInfo', user);
+          return null;
+        }
+        if (local && local.nickname) {
+          this.globalData.userInfo = local;
+          return cloud.safeCall('saveUserInfo', { userInfo: local });
+        }
+        return null;
+      })
+      .catch(() => {
+        // 云端不可用：保留本地缓存，不影响使用
+        this.globalData.openid = this.globalData.openid || '';
+      });
+
+    return this.loginPromise;
+  },
+
+  /**
+   * 获取当前用户资料（含静默登录等待）
+   * @returns {Promise} resolve 用户资料对象或 null
+   */
+  getUserProfile() {
+    return this.ensureLogin().then(() => {
+      return this.globalData.userInfo || tools.getStorage('userInfo', null);
+    });
   },
 
   /**
    * 生命周期 - 小程序从前台进入后台（切后台/按 Home）
    */
   onHide() {
-    // 预留：可在此处理页面级清理逻辑
+    // 退出/切后台时把攒批的行为日志上报云端
+    usage.flush();
   },
 
   /**

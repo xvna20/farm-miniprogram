@@ -194,3 +194,58 @@ git push origin feature/mX              # 推分支
 ```
 
 > 提交信息建议带简单前缀：`feat`(新功能) / `fix`(修复) / `chore`(杂项) / `docs`(文档)。
+
+---
+
+## 七、云开发（云函数 / 数据库）约定
+
+> 项目已接入微信云开发（`wx.cloud`），以下约定**所有成员通用**，请照做，避免踩坑。
+
+### 1. 打开项目的目录
+
+- **统一用开发者工具打开仓库根目录 `farm-miniprogram/`**（不是外层 `farm/`）。该目录的 `project.config.json` 已配置 `cloudfunctionRoot: "cloudfunctions/"` 与 AppID。
+- 若左侧 `cloudfunctions` 没有显示☁图标、右键函数文件夹没有「上传并部署」选项，基本都是打开目录不对或 `cloudfunctionRoot` 未生效，重开项目即可。
+
+### 2. 云环境
+
+- 环境 ID：`cloud1-d5gmj24xffe354a63`（与 `app.js` 中 `wx.cloud.init({ env })` 一致）。
+- 部署云函数、查看数据库/日志时，请确保工具选中的就是该环境；选错会报 `env not found`。
+
+### 3. 上传部署云函数
+
+- 六个云函数在 `cloudfunctions/` 下：`login`、`getOrders`、`syncOrders`、`submitFeedback`、`saveUserInfo`、`logUsage`。
+- 部署方式：在对应云函数文件夹上**右键 → 上传并部署：云端安装依赖**（本地无需 node_modules）。
+- 云函数内统一 `cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV })`，自动跟随当前环境，新增云函数时请沿用。
+- 小程序端调用统一走 `utils/cloud.js` 的 `call / safeCall`，禁止直接 `wx.cloud.callFunction`。
+
+### 4. 数据库集合（需手动创建）
+
+微信云数据库**集合不会自动创建**，首次联调前请在「云开发控制台 → 数据库」手动新建以下 4 个集合：
+
+| 集合 | 用途 | 写入方 |
+|---|---|---|
+| `users` | 用户资料（登录 upsert） | login / saveUserInfo |
+| `orders` | 每个用户一条，`list` 字段存全部订单 | syncOrders / getOrders |
+| `feedbacks` | 意见反馈 | submitFeedback |
+| `usage_logs` | 行为埋点 | logUsage |
+
+> 不建 `users` 时 `login` 会失败，但 app.js 已做降级、小程序仍可运行，注意别漏建。
+
+#### 4.1 各集合含义与字段
+
+**`users` — 用户资料表**（login / saveUserInfo 写入）
+- 每个用户一条记录，靠 `_openid` 识别。
+- 主要字段：`nickname` 昵称、`avatar` 头像、`gender` 性别、`region` 地区、`bio` 简介、`phone` 手机号、`createdAt` / `lastLoginAt` 时间、`loginCount` 登录次数。
+
+**`orders` — 订单表**（syncOrders 写入 / getOrders 读取）
+- 每个用户一条记录，`list` 字段存该用户全部订单数组，另加 `updatedAt` 更新时间。
+
+**`feedbacks` — 意见反馈表**（submitFeedback 写入）
+- 每次提交新增一条。主要字段：`_openid`、`type` / `typeLabel` 反馈类型、`content` 内容（限 500 字）、`contact` 联系方式（限 50 字）、`status` 状态（默认 `pending`）、`createTime` 提交时间。
+
+**`usage_logs` — 行为埋点日志表**（logUsage 批量写入）
+- 一个事件一条，批量插入。主要字段：`_openid`、`event` 事件名（如 `launch` / `page_view`）、`page` 页面路径、`extra` 附加信息、`time` 时间戳。
+
+### 5. 数据模型约定（orders）
+
+- `orders` 集合按「每用户一条记录」设计：`syncOrders` 整体覆盖该用户文档，`getOrders` 读回 `list` 字段。**不要改成每笔订单一条文档**，否则两个云函数需同步改造。

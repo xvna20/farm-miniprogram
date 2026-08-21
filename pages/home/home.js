@@ -1,4 +1,5 @@
 const router = require('../../utils/router')
+const usage = require('../../utils/usage')
 
 Page({
   data: {
@@ -6,6 +7,9 @@ Page({
   },
   onLoad() {
     this.setData({ statusBarHeight: getApp().globalData.statusBarHeight })
+  },
+  onShow() {
+    usage.push('page_view', { page: 'home' })
   },
   onExplore() {
     router.navigate('mushroom')
