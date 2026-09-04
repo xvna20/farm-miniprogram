@@ -10,16 +10,18 @@ const { deriveOrderStatus } = require('../../utils/order');
 Page({
   data: {
     statusBarHeight: 20,
+    privacyAgreed: false,
+    showPrivacyPopup: false,
     userInfo: {
       nickname: '珠城寻菌人',
-      bio: '支持乡村好物 · 记录实践足迹',
+      bio: '品味原生菌鲜，感受乡土匠心',
       avatar: ''
     },
     orders: [
       { key: 'unpaid',   count: 0, label: '待付款' },
-      { key: 'unshipped', count: 1, label: '待发货' },
-      { key: 'unreceived', count: 1, label: '待收货' },
-      { key: 'done',     count: 3, label: '已完成' }
+      { key: 'unshipped', count: 0, label: '待发货' },
+      { key: 'unreceived', count: 0, label: '待收货' },
+      { key: 'done',     count: 0, label: '已完成' }
     ]
   },
 
@@ -28,12 +30,15 @@ Page({
     this.setData({
       statusBarHeight: sysInfo.statusBarHeight || 20
     });
-    this.refreshUserInfo();
   },
 
   onShow() {
-    this.refreshUserInfo();
-    this.refreshOrderCounts();
+    const app = getApp()
+    this.setData({ privacyAgreed: app.globalData.privacyAgreed })
+    if (app.globalData.privacyAgreed) {
+      this.refreshUserInfo();
+      this.refreshOrderCounts();
+    }
     usage.push('page_view', { page: 'user' });
   },
 
@@ -67,6 +72,7 @@ Page({
 
   /* ===== 用户卡片 ===== */
   onEditProfile() {
+    if (!this.checkPrivacy()) return
     wx.navigateTo({
       url: '/pages/user/edit-profile/edit-profile'
     });
@@ -74,6 +80,7 @@ Page({
 
   /* ===== 订单 ===== */
   onGoOrders() {
+    if (!this.checkPrivacy()) return
     wx.navigateTo({
       url: '/pages/user/orders/orders?tab=all'
     });
@@ -81,6 +88,7 @@ Page({
 
   /* 点击订单角标：按对应状态进入订单页 */
   onGoOrdersTab(e) {
+    if (!this.checkPrivacy()) return
     const key = e.currentTarget.dataset.key;
     wx.navigateTo({
       url: '/pages/user/orders/orders?tab=' + key
@@ -89,12 +97,14 @@ Page({
 
   /* ===== 功能列表 ===== */
   onGoAddress() {
+    if (!this.checkPrivacy()) return
     wx.navigateTo({
       url: '/pages/user/address/address'
     });
   },
 
   onFeedback() {
+    if (!this.checkPrivacy()) return
     wx.navigateTo({
       url: '/pages/user/feedback/feedback'
     });
@@ -104,5 +114,26 @@ Page({
     wx.navigateTo({
       url: '/pages/user/about/about'
     });
+  },
+
+  /* ===== 隐私协议检查 ===== */
+  checkPrivacy() {
+    if (getApp().globalData.privacyAgreed) return true
+    this.setData({ showPrivacyPopup: true })
+    return false
+  },
+
+  onPrivacyAgree() {
+    this.setData({ showPrivacyPopup: false })
+    const app = getApp()
+    app.globalData.privacyAgreed = true
+    app.globalData.canUseLoginFeatures = true
+    this.setData({ privacyAgreed: true })
+    this.refreshUserInfo();
+    this.refreshOrderCounts();
+  },
+
+  onPrivacyReject() {
+    this.setData({ showPrivacyPopup: false })
   }
 });

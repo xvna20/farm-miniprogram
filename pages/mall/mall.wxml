@@ -1,3 +1,7 @@
+<!-- 顶部标题栏（与首页同款，全宽贴顶） -->
+<view class="nav-status" style="height: {{statusBarHeight}}px;"></view>
+<view class="nav-bar"><text class="nav-title">助农商城</text></view>
+
 <view class="page">
 
 <!-- 搜索区域 -->

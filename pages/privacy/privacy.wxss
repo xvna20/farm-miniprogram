@@ -1,0 +1,71 @@
+.page {
+  min-height: 100vh;
+  background: #f5f1e7;
+}
+.content {
+  padding: 24rpx 28rpx 60rpx;
+}
+.doc-card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 40rpx 32rpx;
+}
+.doc-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2C2416;
+  text-align: center;
+  margin-bottom: 12rpx;
+}
+.doc-date {
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.doc-section {
+  margin-bottom: 32rpx;
+}
+.doc-heading {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2C2416;
+  margin-bottom: 12rpx;
+}
+.doc-text {
+  font-size: 26rpx;
+  color: #6B5D4F;
+  line-height: 1.8;
+  margin-bottom: 8rpx;
+}
+.doc-table {
+  margin: 16rpx 0;
+  border: 2rpx solid #F0E8DC;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.doc-table-row {
+  display: flex;
+  border-bottom: 2rpx solid #F0E8DC;
+}
+.doc-table-row:last-child {
+  border-bottom: none;
+}
+.doc-table-header {
+  background: #f5f1e7;
+}
+.doc-table-header .doc-table-cell {
+  font-weight: 600;
+  color: #2C2416;
+  font-size: 24rpx;
+}
+.doc-table-cell {
+  flex: 1;
+  padding: 16rpx 12rpx;
+  font-size: 22rpx;
+  color: #6B5D4F;
+  border-right: 2rpx solid #F0E8DC;
+}
+.doc-table-cell:last-child {
+  border-right: none;
+}

@@ -1,19 +1,132 @@
-/* .page / .status-bar / .topbar / .back-hit / .back-icon / .topbar-title / .topbar-menu 已在 app.wxss 定义 */
-.page { padding-bottom: 44rpx; }
-.status-bar { min-height: 37px; font-size: 22rpx; line-height: 32rpx; }
-.status-time, .status-signal { position: absolute; top: 11px; }
-.status-time { left: 46rpx; }.status-signal { right: 28rpx; letter-spacing: 1rpx; }
-.topbar { height: 108rpx; }
-.back-hit { width: 112rpx; height: 108rpx; z-index: 1; }
-.back-icon { margin-left: 34rpx; margin-top: 0; font-size: 56rpx; line-height: 82rpx; }
-.topbar-title { font-size: 34rpx; line-height: 50rpx; }
-.topbar-menu { right: 20rpx; top: 20rpx; width: 108rpx; font-size: 36rpx; font-weight: 500; line-height: 52rpx; text-align: center; letter-spacing: 8rpx; }
-.content { padding: 40rpx 30rpx 0; }.hero { padding: 0 4rpx 40rpx; }
-.hero-title, .hero-subtitle, .card-tag, .card-title, .card-desc { display: block; }
-.hero-title { font-size: 48rpx; font-weight: 700; line-height: 74rpx; }.hero-subtitle { margin-top: 4rpx; font-size: 26rpx; line-height: 40rpx; }
-.cards { display: flex; flex-direction: column; gap: 20rpx; }
-.card { box-sizing: border-box; width: 100%; padding: 32rpx; border-radius: 24rpx; background: #FDFBF6; box-shadow: 0 4rpx 16rpx rgba(79,69,51,.08); }
-.card-tag { height: 40rpx; font-size: 24rpx; font-weight: 500; line-height: 38rpx; }.card-title { height: 40rpx; margin-top: 14rpx; font-size: 34rpx; font-weight: 700; line-height: 52rpx; }
-.card-desc { margin-top: 14rpx; color: #74766F; font-size: 26rpx; line-height: 40rpx; }
-.cta { position: relative; width: 100%; height: 132rpx; margin: 102rpx 0 0; }.cta-art { position: absolute; left: 0; top: -12rpx; width: 100%; height: 164rpx; }
-.cta-text { position: absolute; left: 0; top: 38rpx; z-index: 1; width: 100%; color: #FDFBF6; font-size: 40rpx; font-weight: 700; line-height: 50rpx; text-align: center; }
+page { background: #FCF8ED; }
+
+/* ── topbar ── */
+.topbar { height: 104rpx; }
+.back-hit { width: 112rpx; height: 104rpx; z-index: 1; }
+.back-icon { margin-left: 32rpx; font-size: 52rpx; }
+.topbar-title { font-size: 34rpx; line-height: normal; }
+
+/* ── scroll ── */
+.scroll { height: calc(100vh - 142rpx); }
+
+/* ════════════════════════════════════════
+   hero 渐变装饰块
+   ════════════════════════════════════════ */
+.hero {
+  position: relative;
+  margin: 32rpx 30rpx 0;
+  padding: 48rpx 36rpx 52rpx;
+  border-radius: 24rpx 24rpx 0 0;
+  background: linear-gradient(135deg, #F5EFDC 0%, #E6EAD6 100%);
+  overflow: hidden;
+}
+.hero-title, .hero-subtitle { display: block; position: relative; z-index: 1; }
+.hero-title { font-size: 48rpx; font-weight: 700; line-height: 74rpx; color: #373A35; }
+.hero-subtitle { margin-top: 10rpx; font-size: 26rpx; color: #74766F; line-height: 40rpx; }
+
+/* ── 装饰：水滴 ── */
+.deco-drop {
+  position: absolute;
+  right: 56rpx;
+  top: 32rpx;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  background: rgba(116,156,150,.3);
+}
+
+/* ── 装饰：麦穗（单元素多 box-shadow 抽象麦粒） ── */
+.deco-wheat {
+  position: absolute;
+  right: 120rpx;
+  top: 18rpx;
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  box-shadow:
+    0 0 0 4rpx rgba(184,134,11,.2),
+    -10rpx 16rpx 0 4rpx rgba(184,134,11,.2),
+    10rpx 16rpx 0 4rpx rgba(184,134,11,.2),
+    -10rpx 32rpx 0 4rpx rgba(184,134,11,.2),
+    10rpx 32rpx 0 4rpx rgba(184,134,11,.2),
+    -10rpx 48rpx 0 4rpx rgba(184,134,11,.2),
+    10rpx 48rpx 0 4rpx rgba(184,134,11,.2),
+    0 60rpx 0 3rpx rgba(184,134,11,.15);
+}
+
+/* ── 装饰：菌菇轮廓（描边伞盖 + 菌柄） ── */
+.deco-mushroom {
+  position: absolute;
+  left: 40rpx;
+  bottom: 24rpx;
+}
+.deco-mushroom .cap {
+  width: 48rpx;
+  height: 24rpx;
+  border-radius: 48rpx 48rpx 0 0;
+  border: 2rpx solid rgba(136,180,120,.35);
+  border-bottom: none;
+}
+.deco-mushroom .stem {
+  width: 16rpx;
+  height: 18rpx;
+  margin: 0 auto;
+  border-radius: 0 0 4rpx 4rpx;
+  border: 2rpx solid rgba(136,180,120,.35);
+  border-top: none;
+}
+
+/* ════════════════════════════════════════
+   三张卡片
+   ════════════════════════════════════════ */
+.cards { display: flex; flex-direction: column; gap: 24rpx; margin: 0 30rpx; }
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24rpx;
+  padding: 32rpx;
+  border-radius: 16rpx;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 16rpx rgba(79,69,51,.06);
+}
+
+/* ── 彩色圆环 ── */
+.ring {
+  flex: none;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ring-1 { background: #749C96; }
+.ring-2 { background: #C89E58; }
+.ring-3 { background: #88B478; }
+.ring-num { font-size: 28rpx; font-weight: 800; color: #FFFFFF; line-height: 1; }
+
+/* ── 卡片文字区 ── */
+.card-main { flex: 1; min-width: 0; }
+.card-tag { display: block; font-size: 22rpx; font-weight: 500; line-height: 36rpx; }
+.tag-1 { color: #749C96; }
+.tag-2 { color: #C89E58; }
+.tag-3 { color: #88B478; }
+.card-title { display: block; margin-top: 8rpx; font-size: 34rpx; font-weight: 700; color: #373A35; line-height: 52rpx; }
+.card-desc { display: block; margin-top: 10rpx; color: #74766F; font-size: 25rpx; line-height: 40rpx; }
+
+/* ════════════════════════════════════════
+   底部按钮
+   ════════════════════════════════════════ */
+.cta {
+  width: 80%;
+  margin: 56rpx auto 40rpx;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #B8860B;
+  box-shadow: 0 6rpx 24rpx rgba(184,134,11,.35);
+}
+.cta-text { font-size: 32rpx; font-weight: 700; color: #FFFFFF; line-height: 42rpx; }

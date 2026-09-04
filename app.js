@@ -66,7 +66,11 @@ App({
     // 域名信息：开发环境可选择是否开启调试（request.js 会读取）
     isDebug: false,
     // 其他业务全局数据可放此处（如：购物车数量等）
-    appData: {}
+    appData: {},
+    // 隐私协议是否已同意
+    privacyAgreed: false,
+    // 是否可使用需要登录的功能
+    canUseLoginFeatures: false
   },
 
   /**
@@ -88,9 +92,12 @@ App({
     // 读取本地缓存的登录态，用于冷启动恢复
     const token = tools.getStorage('token', '');
     const userInfo = tools.getStorage('userInfo', null);
+    const privacyAgreed = tools.getStorage('privacyAgreed', false);
     this.globalData.token = token;
     this.globalData.userInfo = userInfo;
     this.globalData.isLogin = !!token;
+    this.globalData.privacyAgreed = !!privacyAgreed;
+    this.globalData.canUseLoginFeatures = !!privacyAgreed;
 
     // 静默登录（云端识别用户 / 拉取云端资料），失败自动降级不阻塞启动
     this.ensureLogin();

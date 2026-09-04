@@ -3,6 +3,10 @@
   wx:if="{{product}}"
 >
 
+  <!-- 顶部标题栏 -->
+  <view class="nav-status" style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar"><view class="nav-back" bindtap="goBack">‹</view><text class="nav-title">商品详情</text></view>
+
   <!-- 商品主图 -->
   <view class="product-cover">
 

@@ -16,12 +16,15 @@
     <text class="section-title">六步种植流程</text>
 
     <view class="steps">
-      <view class="step-card" wx:for="{{steps}}" wx:key="number">
+      <view class="step-card {{expandedIndex === index ? 'step-card-open' : ''}}" wx:for="{{steps}}" wx:key="number" bindtap="toggleStep" data-index="{{index}}">
         <view class="step-head">
           <view class="badge"><image class="badge-art" src="/images/green-step-badge.svg" mode="aspectFit" /><text class="badge-number">{{item.number}}</text></view>
           <view class="step-heading"><text class="step-title">{{item.title}}</text><text class="step-tag">{{item.tag}}</text></view>
+          <view class="step-arrow {{expandedIndex === index ? 'step-arrow-open' : ''}}">›</view>
         </view>
-        <text class="step-desc {{item.compact ? 'step-desc-compact' : ''}}">{{item.desc}}</text>
+        <view class="step-body">
+          <text class="step-desc {{item.compact ? 'step-desc-compact' : ''}}">{{item.desc}}</text>
+        </view>
       </view>
     </view>
   </view>

@@ -1,10 +1,20 @@
 Page({
   data: {
+    statusBarHeight: 20,
     order: null
   },
 
   onLoad() {
+    const sysInfo = wx.getWindowInfo();
+    this.setData({
+      statusBarHeight: sysInfo.statusBarHeight || 20
+    });
+
     this.loadOrder();
+  },
+
+  goBack() {
+    wx.navigateBack({ delta: 1 });
   },
 
   loadOrder() {

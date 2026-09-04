@@ -3,6 +3,8 @@ const usage = require("../../utils/usage");
 
 Page({
   data: {
+    statusBarHeight: 20,
+
     keyword: "",
 
     categories: [
@@ -22,7 +24,9 @@ Page({
   },
 
   onLoad() {
+    const sysInfo = wx.getWindowInfo();
     this.setData({
+      statusBarHeight: sysInfo.statusBarHeight || 20,
       products
     });
 

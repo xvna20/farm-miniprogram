@@ -3,6 +3,7 @@ const router = require('../../utils/router')
 Page({
   data: {
     statusBarHeight: 0,
+    expandedIndex: 0,
     steps: [
       { number: '01', title: '培养基配制', tag: '本地天然基料', desc: '精选本地优质农作物秸秆、木屑与棉籽壳作为天然培养基，全过程不添加任何化学生长素或农药残留。' },
       { number: '02', title: '高温灭菌 → 无菌接种', tag: '源头纯净', desc: '经高压高温蒸气彻底灭菌后，在无菌环境中完成接种，从源头确保纯净天然。' },
@@ -17,5 +18,9 @@ Page({
   },
   goBack() {
     router.back()
+  },
+  toggleStep(e) {
+    const index = e.currentTarget.dataset.index
+    this.setData({ expandedIndex: this.data.expandedIndex === index ? -1 : index })
   }
 })

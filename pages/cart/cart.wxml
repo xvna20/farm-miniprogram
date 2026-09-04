@@ -1,5 +1,9 @@
 <view class="page">
 
+<!-- 顶部标题栏 -->
+<view class="nav-status" style="height: {{statusBarHeight}}px;"></view>
+<view class="nav-bar"><view class="nav-back" bindtap="goBack">‹</view><text class="nav-title">购物车</text></view>
+
 <!-- 有商品 -->
 <block wx:if="{{cartItems.length > 0}}">
 

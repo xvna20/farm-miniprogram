@@ -32,5 +32,13 @@ Page({
   /* 返回 */
   onGoBack() {
     wx.navigateBack({ delta: 1 });
+  },
+
+  /* 跳转协议页面 */
+  goToAgreement() {
+    wx.navigateTo({ url: '/pages/agreement/agreement' });
+  },
+  goToPrivacy() {
+    wx.navigateTo({ url: '/pages/privacy/privacy' });
   }
 });

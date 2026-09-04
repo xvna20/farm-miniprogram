@@ -14,7 +14,7 @@ Page({
       phone: '188****3731',
       gender: '保密',
       region: '安徽省蚌埠市',
-      bio: '支持乡村好物 · 记录实践足迹',
+      bio: '品味原生菌鲜，感受乡土匠心',
       avatar: ''
     },
     genderOptions: ['男', '女', '保密'],

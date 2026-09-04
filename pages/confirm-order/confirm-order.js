@@ -6,6 +6,8 @@ const { deriveOrderStatus } = require("../../utils/order");
 
 Page({
   data: {
+    statusBarHeight: 20,
+
     orderItems: [],
 
     address: null,
@@ -20,8 +22,17 @@ Page({
   },
 
   onLoad() {
+    const sysInfo = wx.getWindowInfo();
+    this.setData({
+      statusBarHeight: sysInfo.statusBarHeight || 20
+    });
+
     this.loadOrder();
     this.ensureUnpaidOrder();
+  },
+
+  goBack() {
+    wx.navigateBack({ delta: 1 });
   },
 
   onShow() {

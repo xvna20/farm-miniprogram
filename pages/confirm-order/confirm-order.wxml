@@ -1,5 +1,9 @@
 <view class="page">
 
+<!-- 顶部标题栏 -->
+<view class="nav-status" style="height: {{statusBarHeight}}px;"></view>
+<view class="nav-bar"><view class="nav-back" bindtap="goBack">‹</view><text class="nav-title">确认订单</text></view>
+
 <!-- 收货地址 -->
 <view
   class="card address-card"
