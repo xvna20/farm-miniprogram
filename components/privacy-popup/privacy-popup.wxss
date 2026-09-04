@@ -1,0 +1,60 @@
+.popup-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.popup-box {
+  width: 600rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 48rpx 40rpx 40rpx;
+}
+.popup-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2C2416;
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+.popup-content {
+  margin-bottom: 40rpx;
+}
+.popup-text {
+  font-size: 26rpx;
+  color: #6B5D4F;
+  line-height: 1.8;
+}
+.popup-link {
+  font-size: 26rpx;
+  color: #1FAE5A;
+  line-height: 1.8;
+}
+.popup-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.popup-btn {
+  height: 88rpx;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.popup-btn-agree {
+  background: linear-gradient(135deg, #1FAE5A 0%, #178C48 100%);
+  color: #FFFFFF;
+}
+.popup-btn-reject {
+  background: #F5F1E7;
+  color: #6B5D4F;
+}

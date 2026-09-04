@@ -10,9 +10,11 @@
 .tab { display: flex; box-sizing: border-box; height: 76.92rpx; align-items: center; justify-content: center; border-radius: 38.46rpx; font-size: 26.92rpx; font-weight: 500; }
 .tab-active { width: 315.38rpx; color: #FDFBF6; background: #C49A52; }
 .tab-inactive { width: 319.23rpx; background: #E4E7D6; }
-.species-hero { box-sizing: border-box; height: 150rpx; margin-top: 38.46rpx; padding: 28.85rpx 38.46rpx; overflow: hidden; border-radius: 23.08rpx; background: #E8D8B7; }
-.species-tag { height: 38.46rpx; color: #74766F; font-size: 23.08rpx; font-weight: 500; line-height: 38.46rpx; }
-.species-title { height: 38.46rpx; margin-top: 5.77rpx; font-size: 40.38rpx; font-weight: 700; line-height: 38.46rpx; }
+.species-hero { position: relative; box-sizing: border-box; height: 340rpx; margin-top: 38.46rpx; padding: 28.85rpx 38.46rpx; overflow: hidden; border-radius: 23.08rpx; }
+.species-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.species-hero-mask { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(55,58,53,.45); }
+.species-tag { position: relative; height: 38.46rpx; margin-top: 10rpx; color: rgba(255,255,255,.85); font-size: 30rpx; font-weight: 500; line-height: 38.46rpx; }
+.species-title { position: relative; height: 38.46rpx; margin-top: 43.08rpx; font-size: 52rpx; font-weight: 700; line-height: 38.46rpx; color: #FDFBF6; }
 .info-card { box-sizing: border-box; padding: 30.77rpx 36.54rpx; overflow: hidden; border: 1px solid #E5DED1; border-radius: 23.08rpx; background: #FDFBF6; box-shadow: 0 5.77rpx 19.23rpx rgba(56,59,54,.07); }
 .feature-card { height: 278.85rpx; margin-top: 30.77rpx; }.nutrition-card { height: 240.38rpx; margin-top: 30.77rpx; }.identify-card { height: 317.31rpx; margin-top: 30.77rpx; }
 .info-title { height: 38.46rpx; font-size: 28.85rpx; font-weight: 700; line-height: 38.46rpx; }

@@ -13,7 +13,6 @@
 .nav-bar {
   width: 100%;
   height: 104rpx;
-  background-color: #FDFBF6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +21,7 @@
 .nav-title {
   font-size: 34rpx;
   font-weight: bold;
-  color: #373A35;
+  color: #FDFBF6;
 }
 .dots{position:absolute;right:28rpx;top:22rpx;font-size:28rpx;letter-spacing:8rpx}
 

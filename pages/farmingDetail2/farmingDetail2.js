@@ -3,6 +3,7 @@ const router = require('../../utils/router')
 Page({
   data: {
     statusBarHeight: 0,
+    expandedIndex: 0,
     steps: [
       { number: '01', title: '菌种优选与精准配比', tag: '高活力菌种', desc: '采用中科院优选的高活力菌种与精准定标的培养基配比，确保每一根菌棒萌发率与品质高度一致。' },
       { number: '02', title: '自动化流水线接种', tag: '无尘无污染', desc: '在自动化无菌流水线完成接种，全程无尘无污染，保障菌棒活力与洁净度。' },
@@ -17,5 +18,9 @@ Page({
   },
   goBack() {
     router.back()
+  },
+  toggleStep(e) {
+    const index = e.currentTarget.dataset.index
+    this.setData({ expandedIndex: this.data.expandedIndex === index ? -1 : index })
   }
 })

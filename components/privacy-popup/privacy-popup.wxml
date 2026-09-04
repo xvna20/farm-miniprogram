@@ -1,0 +1,16 @@
+<view class="popup-mask" wx:if="{{visible}}">
+  <view class="popup-box">
+    <view class="popup-title">服务协议与隐私政策</view>
+    <view class="popup-content">
+      <text class="popup-text">欢迎使用"皖北珍菌"小程序。在使用前，请您仔细阅读并了解：</text>
+      <text class="popup-link" bindtap="goToAgreement">《用户服务协议》</text>
+      <text class="popup-text">和</text>
+      <text class="popup-link" bindtap="goToPrivacy">《隐私政策》</text>
+      <text class="popup-text">。我们将依法保护您的个人信息安全。</text>
+    </view>
+    <view class="popup-btns">
+      <view class="popup-btn popup-btn-agree" bindtap="onAgree">同意并继续</view>
+      <view class="popup-btn popup-btn-reject" bindtap="onReject">拒绝</view>
+    </view>
+  </view>
+</view>

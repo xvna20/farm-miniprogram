@@ -1,16 +1,11 @@
 <view class="page">
 
-  <!-- 顶部 Header -->
-  <view class="header" style="padding-top: {{statusBarHeight}}px;">
-    <view class="header-back" bindtap="onGoBack">
-      <text class="back-icon">‹</text>
-    </view>
-    <view class="header-title">我的订单</view>
-    <view class="header-menu">
-      <text class="menu-icon">⋯</text>
-    </view>
+  <!-- 顶部标题栏 -->
+  <view class="nav-status" style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onGoBack">‹</view>
+    <text class="nav-title">我的订单</text>
   </view>
-  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
 
   <view class="order-section-title">订单状态</view>
 
@@ -29,7 +24,7 @@
 
     <!-- 订单列表（有数据时） -->
     <view wx:if="{{orderList.length > 0}}" class="order-list">
-      <view wx:for="{{orderList}}" wx:key="orderNumber" class="order-card">
+      <view wx:for="{{orderList}}" wx:key="orderNumber" class="order-card" bindtap="onOrderTap" data-order="{{item.orderNumber}}">
         <view class="order-card-head">
           <text class="order-number">单号 {{item.orderNumber}}</text>
           <text class="order-status {{item.status}}">{{item.statusLabel}}</text>
@@ -53,6 +48,9 @@
           <text class="foot-time">下单时间 {{item.timeText}}</text>
           <view class="foot-total">共{{item.itemCount}}件 · 实付 <text class="total-yen">¥{{item.totalAmount}}</text></view>
         </view>
+
+        <!-- 待付款：继续付款入口 -->
+        <view wx:if="{{item.status === 'unpaid'}}" class="pay-entry">点击继续付款 ›</view>
       </view>
     </view>
 

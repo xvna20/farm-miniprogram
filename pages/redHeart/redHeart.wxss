@@ -11,7 +11,7 @@
 
 .nav-bar {
   height: 104rpx;
-  background-color: #FDFBF6;
+  background-color: #8F9670;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,22 +22,22 @@
   position: absolute;
   left: 32rpx;
   font-size: 52rpx;
-  color: #373A35;
+  color: #FDFBF6;
   line-height: 1;
 }
 
 .nav-title {
   font-size: 34rpx;
   font-weight: bold;
-  color: #373A35;
+  color: #FDFBF6;
 }
 
 /* 英雄横幅 */
 .hero {
   margin: 24rpx 32rpx;
-  background-color: #B8893F;
+  background-color: #F0E6CE;
   border-radius: 42rpx;
-  padding: 42rpx 40rpx 62rpx;
+  padding: 42rpx 40rpx 36rpx;
   display: flex;
   flex-direction: column;
 }
@@ -45,27 +45,28 @@
 .hero-tag {
   font-size: 25rpx;
   color: #8E3B32;
-  margin-bottom: 38rpx;
+  margin-bottom: 16rpx;
 }
 
 .hero-title {
   font-size: 50rpx;
   font-weight: bold;
-  color: #8E3B32;
+  color: #A37431;
   line-height: 1.3;
 }
 
 /* 简介 */
 .desc {
-  padding: 42rpx 32rpx 0;
+  margin-top: 14rpx;
+  padding: 0;
   font-size: 28rpx;
-  color: #373A35;
+  color: #BF9A51;
   line-height: 1.7;
 }
 
 /* 时间轴 */
 .timeline {
-  padding: 94rpx 32rpx 0;
+  padding: 24rpx 32rpx 0;
 }
 
 .timeline-item {

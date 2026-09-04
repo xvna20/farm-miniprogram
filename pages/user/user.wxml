@@ -1,10 +1,10 @@
 <view class="page">
-
   <!-- 顶部 Header -->
-  <view class="header" style="padding-top: {{statusBarHeight}}px;">
-    <view class="header-title">我的</view>
+  <view class="nav-status" style="height: {{statusBarHeight}}px;">
   </view>
-  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
+  <view class="nav-bar">
+    <text class="nav-title">我的</text>
+  </view>
 
   <view class="content">
 
@@ -74,3 +74,4 @@
 
   </view>
 </view>
+<privacy-popup visible="{{showPrivacyPopup}}" bind:agree="onPrivacyAgree" bind:reject="onPrivacyReject" />

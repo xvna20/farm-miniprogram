@@ -2,11 +2,21 @@ const { products } = require("../../data/products.js");
 
 Page({
   data: {
+    statusBarHeight: 20,
     product: null,
     cartCount: 0
   },
 
+  goBack() {
+    wx.navigateBack({ delta: 1 });
+  },
+
   onLoad(options) {
+    const sysInfo = wx.getWindowInfo();
+    this.setData({
+      statusBarHeight: sysInfo.statusBarHeight || 20
+    });
+
     const id = Number(options.id);
 
     const foundProduct = products.find(item => {

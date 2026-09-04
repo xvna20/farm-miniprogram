@@ -3,6 +3,8 @@
  * 支持：反馈类型选择 + 内容描述 + 联系方式（选填）
  */
 const tools = require('../../../utils/tools');
+const cloud = require('../../../utils/cloud');
+const usage = require('../../../utils/usage');
 
 Page({
   data: {
@@ -84,10 +86,19 @@ Page({
       createTime: tools.formatTime(new Date())
     };
 
-    // 读取历史反馈列表并追加
+    // 读取历史反馈列表并追加（本地兜底，离线也能留痕）
     const list = tools.getStorage('feedbackList', []);
     list.unshift(feedback);
     tools.setStorage('feedbackList', list);
+
+    // 同步到云端：管理员可在云开发控制台 feedbacks 集合查看
+    cloud.safeCall('submitFeedback', {
+      type: form.type,
+      typeLabel: feedback.typeLabel,
+      content: feedback.content,
+      contact: contact
+    });
+    usage.push('submit_feedback', { type: form.type });
 
     wx.showToast({
       title: '提交成功',

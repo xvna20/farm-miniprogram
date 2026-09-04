@@ -1,0 +1,9 @@
+{
+  "name": "logUsage",
+  "version": "1.0.0",
+  "description": "批量写入使用行为日志到 usage_logs 集合",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -202,10 +202,10 @@ textarea {
   position: relative;
   display: flex;
   box-sizing: border-box;
-  height: 103.85rpx;
+  height: 104rpx;
   align-items: center;
   justify-content: center;
-  background: #FDFBF6;
+  background: #8F9670;
 }
 .back-hit {
   position: absolute;
@@ -214,20 +214,22 @@ textarea {
   z-index: 2;
   display: flex;
   width: 107.69rpx;
-  height: 103.85rpx;
+  height: 104rpx;
   align-items: center;
 }
 .back-icon {
-  margin-left: 34.62rpx;
-  margin-top: -7.69rpx;
-  font-size: 65.38rpx;
+  margin-left: 32rpx;
+  margin-top: 0;
+  font-size: 52rpx;
   font-weight: 400;
   line-height: 1;
+  color: #FDFBF6;
 }
 .topbar-title {
-  font-size: 32.69rpx;
-  font-weight: 700;
-  line-height: 46.15rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  line-height: normal;
+  color: #FDFBF6;
 }
 .topbar-menu {
   position: absolute;
@@ -240,24 +242,28 @@ textarea {
 }
 
 /* ================== 导航栏公共基础样式（.nav-bar 系）================== */
-/* 用于 home / redHeart */
+/* 用于 home / redHeart / user 及各自定义导航页面 */
+.nav-status {
+  width: 100%;
+  background-color: #F6F1E7;
+}
 .nav-bar {
   position: relative;
   display: flex;
   height: 104rpx;
   align-items: center;
   justify-content: center;
-  background-color: #FDFBF6;
+  background-color: #8F9670;
 }
 .nav-title {
   font-size: 34rpx;
   font-weight: bold;
-  color: #373A35;
+  color: #FDFBF6;
 }
 .nav-back {
   position: absolute;
   left: 32rpx;
   font-size: 52rpx;
-  color: #373A35;
+  color: #FDFBF6;
   line-height: 1;
 }

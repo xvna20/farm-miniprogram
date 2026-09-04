@@ -1,31 +1,72 @@
 <view class="page">
   <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
   <view class="topbar"><view class="back-hit" bindtap="goBack"><text class="back-icon">‹</text></view><text class="topbar-title">食养安康</text></view>
-  <scroll-view class="scroll" scroll-y><view class="section">
-    <text class="section-title">毒菇鉴别 · 储存方法 · 安全食用</text>
-    <text class="section-intro">来源明确、储存得当、充分加热，是菌菇安全食用的三道防线。</text>
-
-    <view class="content-block">
-      <text class="block-title danger">❗️毒菇鉴别铁律｜破除常见误区❗</text>
-      <text class="block-item">·🚫颜色朴素的蘑菇未必无毒。灰花纹鹅膏、致命鹅膏看似普通，却有剧毒。</text>
-      <text class="block-item">·❌虫蚁啃过不代表人可食用，虫蚁耐受不等于人类安全。</text>
-      <text class="block-item">·🚫银器、大蒜试毒并不可靠，毒素多为生物碱，不与银器发生反应。</text>
-      <text class="block-item">·❌牢记"三不"原则：不采、不买、不食来源不明的野生菌。</text>
+  <scroll-view class="scroll" scroll-y>
+    <view class="header">
+      <text class="header-title">毒菇鉴别 · 储存方法 · 安全食用</text>
+      <text class="header-sub">来源明确、储存得当、充分加热，是菌菇安全食用的三道防线。</text>
     </view>
 
-    <view class="content-block">
-      <text class="block-title olive">科学储存方法</text>
-      <text class="block-item">• 鲜菇：用厨房纸吸干表面水分，装入保鲜袋冷藏（2-4℃），建议2-3天内食用完毕。</text>
-      <text class="block-item">• 干菇：密封置于阴凉干燥处；泡发时使用40℃温水，有助保留原汁原味。</text>
+    <view class="safety-card card-danger">
+      <text class="card-title danger-title">⚠️ 毒菇鉴别铁律｜破除常见误区</text>
+      <view class="card-rule">
+        <text class="rule-icon">❌</text>
+        <view class="rule-body">
+          <text class="rule-wrong">颜色朴素就无毒</text>
+          <text class="rule-desc">灰花纹鹅膏、致命鹅膏外观普通，却含有剧毒。</text>
+        </view>
+      </view>
+      <view class="card-rule">
+        <text class="rule-icon">❌</text>
+        <view class="rule-body">
+          <text class="rule-wrong">虫蚁啃过，人就可以吃</text>
+          <text class="rule-desc">虫蚁可以耐受的毒素，对人体依旧会造成中毒伤害。</text>
+        </view>
+      </view>
+      <view class="card-rule">
+        <text class="rule-icon">❌</text>
+        <view class="rule-body">
+          <text class="rule-wrong">银器、大蒜可以测试毒蘑菇</text>
+          <text class="rule-desc">毒素大多属于生物碱，不会和银器、大蒜发生变色反应，完全不能用来验毒。</text>
+        </view>
+      </view>
+      <view class="card-rule">
+        <text class="rule-icon">✅</text>
+        <view class="rule-body">
+          <text class="rule-wrong">牢记"三不"原则</text>
+          <text class="rule-desc">不采、不买、不食用来源不明的野生菌。</text>
+        </view>
+      </view>
     </view>
 
-    <view class="content-block">
-      <text class="block-title danger">安全食用提醒</text>
-      <text class="block-item">• 烹饪前充分清洗，新鲜菌菇可先焯水1-2分钟去除土腥味。</text>
-      <text class="block-item">• 切勿凉拌生食，务必炒熟煮透；隔夜菌菇汤需冷藏并彻底复热。</text>
-      <text class="block-item">• 食用菌菇时不宜饮酒，以免引发不良反应。</text>
+    <view class="safety-card card-green">
+      <text class="card-title green-title">🗄️ 科学储存方法</text>
+      <view class="card-section">
+        <text class="section-label">【鲜菇】</text>
+        <text class="section-text">厨房纸吸干表面水分，装入保鲜袋，2‑4℃冷藏，建议2‑3天内吃完。</text>
+      </view>
+      <view class="card-section">
+        <text class="section-label">【干菇】</text>
+        <text class="section-text">密封放置阴凉干燥处保存；泡发建议使用40℃温水，更好保留风味。</text>
+      </view>
     </view>
 
-    <view class="back-directory" bindtap="goIndex">返回食养目录 ↑</view>
-  </view></scroll-view>
+    <view class="safety-card card-gold">
+      <text class="card-title gold-title">🍳 安全食用提醒</text>
+      <view class="tip-item">
+        <text class="tip-dot">•</text>
+        <text class="tip-text">烹饪前充分清洗，鲜菇可焯水1‑2分钟去除土腥味</text>
+      </view>
+      <view class="tip-item">
+        <text class="tip-dot">•</text>
+        <text class="tip-text">禁止凉拌生食，菌菇务必炒熟煮透；隔夜菌菇汤冷藏保存，食用前必须彻底复热</text>
+      </view>
+      <view class="tip-item">
+        <text class="tip-dot">•</text>
+        <text class="tip-text">吃菌菇期间尽量不要饮酒，避免引发身体不良反应</text>
+      </view>
+    </view>
+
+    <view class="back-link" bindtap="goBack">返回食养目录  ↑</view>
+  </scroll-view>
 </view>

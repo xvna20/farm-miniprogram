@@ -16,7 +16,6 @@
     "pages/health/health",
     "pages/recipe/recipe",
     "pages/season/season",
-    "pages/about/about",
     "pages/safety/safety",
     "pages/mall/mall",
     "pages/user/user",
@@ -30,13 +29,15 @@
     "pages/product-detail/product-detail",
     "pages/cart/cart",
     "pages/confirm-order/confirm-order",
-    "pages/order-result/order-result"
+    "pages/order-result/order-result",
+    "pages/agreement/agreement",
+    "pages/privacy/privacy"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#F5F0E8",
+    "navigationBarBackgroundColor": "#8F9670",
     "navigationBarTitleText": "皖北珍菌",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#F5F0E8",
     "enablePullDownRefresh": false
   },
@@ -45,7 +46,7 @@
       "desc": "您的定位信息将用于助农服务与就近推荐"
     }
   },
-  "requiredPrivateInfos": ["getLocation", "chooseLocation"],
+  "requiredPrivateInfos": [],
   "networkTimeout": {
     "request": 10000,
     "uploadFile": 10000,

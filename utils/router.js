@@ -50,7 +50,6 @@ const routes = {
   redFuture:    '/pages/redFuture/redFuture',
 
   // ---- 其他 ----
-  about:    '/pages/about/about',
   userEdit: '/pages/user/edit-profile/edit-profile'
 };
 

@@ -24,7 +24,7 @@ const products = [
     unit: "袋",
     category: "dry",
 
-    image: "/static/products/xianggu.png",
+    image: "/static/products/xianggu.jpg",
 
     imageText: "香菇",
     tags: ["绿色种植", "冷风慢干", "助农直销"],

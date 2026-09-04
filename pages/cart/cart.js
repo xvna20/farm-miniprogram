@@ -2,10 +2,22 @@ const { products } = require("../../data/products.js");
 
 Page({
   data: {
+    statusBarHeight: 20,
     cartItems: [],
     allSelected: true,
     selectedCount: 0,
     totalPrice: "0.0"
+  },
+
+  onLoad() {
+    const sysInfo = wx.getWindowInfo();
+    this.setData({
+      statusBarHeight: sysInfo.statusBarHeight || 20
+    });
+  },
+
+  goBack() {
+    wx.navigateBack({ delta: 1 });
   },
 
   onShow() {

@@ -1,15 +1,18 @@
 <view class="page">
 
-  <!-- 顶部 Header -->
-  <view class="header" style="padding-top: {{statusBarHeight}}px;">
-    <view class="header-back" bindtap="onGoBack">
-      <text class="back-icon">‹</text>
-    </view>
-    <view class="header-title">收货地址</view>
+  <!-- 顶部标题栏 -->
+  <view class="nav-status" style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onGoBack">‹</view>
+    <text class="nav-title">收货地址</text>
   </view>
-  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
 
   <view class="content">
+
+    <!-- 选择模式提示 -->
+    <view wx:if="{{selectMode}}" class="select-tip">
+      请选择收货地址
+    </view>
 
     <!-- 空状态 -->
     <view wx:if="{{addressList.length === 0}}" class="empty-box">
@@ -24,7 +27,7 @@
         wx:for="{{addressList}}"
         wx:key="id"
         class="address-card"
-        bindtap="onSetDefault"
+        bindtap="onCardTap"
         data-id="{{item.id}}"
         bindlongpress="onLongPressDelete"
       >

@@ -4,66 +4,7 @@
   background: #f5f1e7;
 }
 
-/* ================= 顶部 Header ================= */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: #FFFFFF;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.header-back {
-  width: 88rpx;
-  height: 88rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.back-icon {
-  font-size: 56rpx;
-  color: #2C2416;
-  font-weight: 300;
-}
-
-.header-title {
-  position: absolute;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 34rpx;
-  font-weight: 600;
-  color: #2C2416;
-  line-height: 88rpx;
-  height: 88rpx;
-  pointer-events: none;
-}
-
-.header-menu {
-  position: absolute;
-  right: 0;
-  width: 88rpx;
-  height: 88rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-icon {
-  font-size: 44rpx;
-  color: #2C2416;
-  line-height: 88rpx;
-}
-
-.spacer {
-  width: 100%;
-}
+/* ================= 顶部标题栏（使用 app.wxss 全局 .nav-status / .nav-bar 系） ================= */
 
 /* ================= 区块标题 ================= */
 .order-section-title {
@@ -71,7 +12,6 @@
   font-weight: 600;
   color: #2C2416;
   padding: 28rpx 28rpx 8rpx;
-  margin-top: -150rpx;
 }
 
 /* ================= Tab 切换栏 ================= */
@@ -279,6 +219,15 @@
   font-size: 32rpx;
   font-weight: 700;
   color: #B8860B;
+}
+
+/* ================= 待付款继续付款 ================= */
+.pay-entry {
+  margin-top: 14rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: #B8860B;
+  font-weight: 600;
 }
 
 /* ================= 底部说明 ================= */

@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "订单结果",
-  "navigationBarBackgroundColor": "#F7F1E7",
-  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
   "backgroundColor": "#F7F1E7"
 }

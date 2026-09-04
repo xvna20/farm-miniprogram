@@ -1,16 +1,11 @@
 <view class="page">
 
-  <!-- 顶部 Header -->
-  <view class="header" style="padding-top: {{statusBarHeight}}px;">
-    <view class="header-back" bindtap="onGoBack">
-      <text class="back-icon">‹</text>
-    </view>
-    <view class="header-title">关于项目</view>
-    <view class="header-menu">
-      <text class="menu-icon">⋯</text>
-    </view>
+  <!-- 顶部标题栏 -->
+  <view class="nav-status" style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onGoBack">‹</view>
+    <text class="nav-title">关于项目</text>
   </view>
-  <view class="spacer" style="height: {{statusBarHeight + 44}}px;"></view>
 
   <view class="content">
 
@@ -19,7 +14,7 @@
       <view class="hero-tag">2026 暑期『三下乡』</view>
       <view class="hero-title">寻访珠城发展足迹</view>
       <view class="hero-title">体悟科创红色乡兴</view>
-      <view class="hero-subtitle">安徽财经大学 × 北京林业大学联合实践团</view>
+      <view class="hero-subtitle">"智耘乡野"实践队</view>
     </view>
 
     <!-- 实践路线 -->
@@ -48,6 +43,21 @@
         >
           <view class="source-dot">·</view>
           <view class="source-text">{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 协议与隐私 -->
+    <view class="section">
+      <view class="section-title">协议与隐私</view>
+      <view class="source-card">
+        <view class="source-item" bindtap="goToAgreement">
+          <view class="source-dot">·</view>
+          <view class="source-text source-link">用户服务协议</view>
+        </view>
+        <view class="source-item" bindtap="goToPrivacy">
+          <view class="source-dot">·</view>
+          <view class="source-text source-link">隐私政策</view>
         </view>
       </view>
     </view>
